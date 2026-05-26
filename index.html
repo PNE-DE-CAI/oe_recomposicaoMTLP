@@ -53,6 +53,7 @@
     .question-descriptor { background: white; border-left: 4px solid #3b82f6; padding: 0.8rem; border-radius: 8px; font-size: 0.85rem; color: #475569; margin-bottom: 1rem; }
     .question-image { max-width: 100%; max-height: 250px; border-radius: 16px; margin: 0.5rem 0; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
     .legenda-imagem { font-size: 0.8rem; color: #475569; text-align: center; margin-top: 0.3rem; font-style: italic; }
+	.1legenda-imagem { font-size: 0.8rem; color: #475569; text-align: center; margin-top: 0.3rem; font-style: italic; }
     .imagem-container { margin: 1rem 0; text-align: center; }
     .option-group { display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 1rem; }
     .option { display: flex; align-items: flex-start; gap: 0.8rem; cursor: pointer; padding: 8px 12px; border-radius: 12px; transition: 0.1s; }
@@ -91,7 +92,7 @@
       <h3><i class="fas fa-pencil-alt"></i> Registro de Turma</h3>
       <form id="registroTurmaForm" class="form-grid">
         <div class="form-group"><label>Escola *</label><select id="rEscola" required></select></div>
-        <div class="form-group"><label>Ano/Série *</label><select id="rAnoSerie" required><option value="">Selecione</option><option>6° Ano</option><option>7° Ano</option><option>8° Ano</option><option>9° Ano</option></select></div>
+        <div class="form-group"><label>Ano/Série *</label><select id="rAnoSerie" required><option value="">Selecione</option><option>LP_6° ano</option><option>MT_6° ano</option><option>LP_9° ano</option><option>MT_9° ano</option><option>LP_3ª série</option><option>MT_3ª série</option></select></div>
         <div class="form-group"><label>Turma *</label><select id="rTurma" required><option value="">Selecione</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option></select></div>
         <div class="form-group"><label>Período *</label><select id="rPeriodo" required><option value="">Selecione</option><option>Matutino</option><option>Vespertino</option><option>Noturno</option></select></div>
         <div class="form-group" style="grid-column:1/-1"><label>Professor(a) *</label><input type="text" id="rProfessor" required></div>
@@ -103,7 +104,7 @@
       <h3><i class="fas fa-filter"></i> Filtros - Turmas Registradas</h3>
       <div class="filter-bar">
         <div class="form-group"><label>Escola</label><select id="filtroEscola"><option value="">Todas</option></select></div>
-        <div class="form-group"><label>Ano/Série</label><select id="filtroAno"><option value="">Todos</option><option>6° Ano</option><option>7° Ano</option><option>8° Ano</option><option>9° Ano</option></select></div>
+        <div class="form-group"><label>Ano/Série</label><select id="filtroAno"><option value="">Todos</option><option>LP_6° ano</option><option>MT_6° ano</option><option>LP_9° ano</option><option>MT_9° ano</option><option>LP_3ª série</option><option>MT_3ª série</option></select></div>
         <div class="form-group"><label>Turma</label><select id="filtroTurma"><option value="">Todas</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option></select></div>
         <div class="form-group"><label>Período</label><select id="filtroPeriodo"><option value="">Todos</option><option>Matutino</option><option>Vespertino</option><option>Noturno</option></select></div>
         <div><button class="btn" onclick="aplicarFiltrosRegistros()"><i class="fas fa-search"></i> Filtrar</button></div>
@@ -121,7 +122,7 @@
       <div class="form-grid">
         <div class="form-group"><label>Buscar turma (nome, escola, professor)</label><input type="text" id="buscaTurmaInput" placeholder="Digite para filtrar..." onkeyup="filtrarTurmasSelect()"></div>
         <div class="form-group"><label>Turma Registrada *</label><select id="quizTurmaId" required><option value="">Carregando turmas...</option></select></div>
-        <div class="form-group"><label>Ano/Série *</label><select id="quizAnoSerie"><option value="">Escolha</option><option value="6">6° Ano</option><option value="7">7° Ano</option><option value="8">8° Ano</option><option value="9">9° Ano</option></select></div>
+        <div class="form-group"><label>Ano/Série *</label><select id="quizAnoSerie"><option value="">Escolha</option><option value="6">LP_6° ano</option><option value="7">MT_6° ano</option><option value="8">LP_9° ano</option><option value="9">MT_9° ano</option><option value="10">LP_3ª série</option><option value="11">MT_3ª série</option></select></div>
         <div><button class="btn" onclick="iniciarQuiz()"><i class="fas fa-play"></i> Iniciar Recomposição OE</button></div>
       </div>
     </div>
@@ -146,7 +147,7 @@
 
   <!-- DASHBOARD -->
   <div id="dashboard" class="tab-content">
-    <div class="card"><h3>Filtros</h3><div class="form-grid"><div class="form-group"><label>Escola</label><select id="dashEscola" onchange="atualizarDashboard()"></select></div><div class="form-group"><label>Ano</label><select id="dashAnoSerie" onchange="atualizarDashboard()"><option value="">Todos</option><option>6° Ano</option><option>7° Ano</option><option>8° Ano</option><option>9° Ano</option></select></div><div class="form-group"><label>Turma</label><select id="dashTurma" onchange="atualizarDashboard()"><option value="">Todas</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option></select></div><div class="form-group"><label>Período</label><select id="dashPeriodo" onchange="atualizarDashboard()"><option value="">Todos</option><option>Matutino</option><option>Vespertino</option><option>Noturno</option></select></div><button class="btn" onclick="gerarPDFDashboard()"><i class="fas fa-file-pdf"></i> Gerar PDF Dashboard</button></div></div>
+    <div class="card"><h3>Filtros</h3><div class="form-grid"><div class="form-group"><label>Escola</label><select id="dashEscola" onchange="atualizarDashboard()"></select></div><div class="form-group"><label>Ano</label><select id="dashAnoSerie" onchange="atualizarDashboard()"><option value="">Todos</option><option>LP_6° ano</option><option>MT_6° ano</option><option>LP_9° ano</option><option>MT_9° ano</option><option>LP_3ª série</option><option>MT_3ª série</option></select></div><div class="form-group"><label>Turma</label><select id="dashTurma" onchange="atualizarDashboard()"><option value="">Todas</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option></select></div><div class="form-group"><label>Período</label><select id="dashPeriodo" onchange="atualizarDashboard()"><option value="">Todos</option><option>Matutino</option><option>Vespertino</option><option>Noturno</option></select></div><button class="btn" onclick="gerarPDFDashboard()"><i class="fas fa-file-pdf"></i> Gerar PDF Dashboard</button></div></div>
     <div class="grid-2"><div class="kpi"><h3>Total Turmas</h3><p id="kpiTotalTurmas">0</p></div><br><div class="kpi"><h3>Recomposição OE Realizados</h3><p id="kpiQuizRealizados">0</p></div><br></div>
     <div class="card"><h3>Turmas Registradas</h3><div style="overflow-x:auto"><table><thead><tr><th>Escola</th><th>Ano</th><th>Turma</th><th>Período</th><th>Professor</th><th>Data Registro</th><th>Certificado</th><tr></thead><tbody id="dashTableBody"></tbody></table></div></div>
   </div>
@@ -169,64 +170,672 @@
   const db = firebase.firestore();
 
  // ==================== BANCO DE QUESTÕES FIXO (COMPLETO) ====================
-  const questoesPorAno = {
-    6: [
-    { numero: 1, disciplina: "Matemática", descriptor: "Resolver problemas relacionados ao conceito de múltiplos", texto: "Uma doceira produziu 120 brigadeiros e 150 beijinhos para uma festa. Ela precisa colocar esses doces em bandejas com a mesma quantidade de doces, de modo que todas as bandejas tenham apenas um tipo de doce e com a maior quantidade possível.", opcoes: ["9", "10", "27", "30"], resposta: 0, imagem: "https://i.ibb.co/qL35BVnT/Captura-de-tela-23-5-2026-164251-drive-google-com.jpg", legendaImagem: "A quantidade de bandejas necessárias será" },
-      { numero: 2, disciplina: "Matemática", descriptor: "Reconhecer frações que representam uma quantidade", texto: "Qual fração representa 2 de 5 partes iguais?", opcoes: ["1/5", "2/5", "3/5", "4/5"], resposta: 1, imagem: "", legendaImagem: "" },
-      { numero: 3, disciplina: "Língua Inglesa", descriptor: "Interpretar texto em língua estrangeira", texto: "O título 'I Don't Like Vegetables!' informa que alguém?", opcoes: ["Come verduras", "Não gosta de vegetais", "Prefere vegetais cozidos", "Não conversa"], resposta: 1, imagem: "", legendaImagem: "" },
-      { numero: 4, disciplina: "Língua Inglesa", descriptor: "Interpretar texto com auxílio de material gráfico", texto: "Na árvore genealógica apresentada, Charles Bernard é?", opcoes: ["Irmão de Emma", "Filho de Ava", "Avô de Amelie", "Pai de Brian"], resposta: 2, imagem: "", legendaImagem: "" },
-      { numero: 5, disciplina: "Geografia", descriptor: "Identificar características do sensoriamento remoto", texto: "O processo de obtenção de informações sem contato direto com a área mapeada é chamado de?", opcoes: ["Croqui", "Cartografia", "Técnicas cartográficas", "Sensoriamento remoto"], resposta: 3, imagem: "", legendaImagem: "" },
-      { numero: 6, disciplina: "Geografia", descriptor: "Reconhecer características do ponto de vista vertical", texto: "A visão que permite análise detalhada da distribuição dos elementos na paisagem é denominada?", opcoes: ["Horizontal", "Oblíqua", "Vertical", "Lateral"], resposta: 2, imagem: "", legendaImagem: "" },
-      { numero: 7, disciplina: "Língua Portuguesa", descriptor: "Distinguir fato de opinião", texto: "Em um texto sobre hospedagem com animais de estimação, qual trecho representa uma opinião?", opcoes: ["Colômbia tem 44% de hospedagens pet-friendly", "Quando se trata de viajar com os queridos companheiros de estimação", "Os cinco países com maior porcentagem de hóspedes", "Segundo a Airbnb, 27% dos anúncios"], resposta: 1, imagem: "", legendaImagem: "" },
-      { numero: 8, disciplina: "Língua Portuguesa", descriptor: "Interpretar texto com auxílio de material gráfico", texto: "Qual é a função do infográfico em um texto sobre desperdício de água?", opcoes: ["Acrescentar novo tema", "Questionar hipóteses", "Ensinar consertos hidráulicos", "Facilitar o acesso às informações"], resposta: 3, imagem: "", legendaImagem: "" },
-      { numero: 9, disciplina: "História", descriptor: "Compreender organização da sociedade asteca", texto: "Sobre a sociedade asteca, qual alternativa está correta?", opcoes: ["Camponeses realizavam rituais", "Comerciantes produziam alimentos", "Imperadores faziam trabalho braçal", "Sacerdotes eram funcionários do Estado"], resposta: 3, imagem: "", legendaImagem: "" },
-      { numero: 10, disciplina: "História", descriptor: "Reconhecer características da escrita egípcia", texto: "Sobre a escrita egípcia, pode-se afirmar que?", opcoes: ["Demótica retratava apenas animais", "Hieroglífica era usada em rituais religiosos", "Demótica era limitada aos camponeses", "Hieroglífica nunca foi traduzida"], resposta: 1, imagem: "", legendaImagem: "" },
-      { numero: 11, disciplina: "Ciências", descriptor: "Classificar substâncias puras e misturas", texto: "O gás ozônio, formado por 3 átomos de oxigênio, é classificado como?", opcoes: ["Substância pura heterogênea", "Mistura pura composta", "Substância pura simples", "Mistura heterogênea"], resposta: 2, imagem: "", legendaImagem: "" },
-      { numero: 12, disciplina: "Ciências", descriptor: "Reconhecer fatores de formação dos solos", texto: "O processo de desgaste da rocha que contribui para a formação dos solos é?", opcoes: ["Adubação", "Intemperismo", "Compostagem", "Evaporação"], resposta: 1, imagem: "", legendaImagem: "" }
+const questoesPorAno = {
+  6: [  {
+    numero: 1,
+    disciplina: "Língua Portuguesa",
+    descriptor: "Localizar informações explícitas em textos narrativos curtos, informativos e anúncios.",
+    texto: "Leia o texto.\n\nDois ou um\nAssim que o grupo fala \"dois ou um\", todos mostram, ao mesmo tempo, um ou dois dedos. Todos os que colocam um número de dedos diferente da maioria são eliminados.\nDeve-se tirar \"dois ou um\" até sobrar apenas duas crianças. Elas decidem quem vence no par ou ímpar.De acordo com o texto, deve-se tirar “dois ou um” até sobrarem quantas crianças?",
+    opcoes: ["Uma.", "Duas.", "Três.", "Quatro."],
+    resposta: 1,
+    imagem: "https://i.ibb.co/VWrKtqnC/6lp1.png",
+    legendaImagem: "DOIS ou um. Mapa do Brincar. Folha de S. Paulo. Disponível em: https://mapadobrincar.folha.com.br/. Acesso em: 27 out. 2025"
+  },
+  {
+    numero: 2,
+    disciplina: "Língua Portuguesa",
+    descriptor: "Reconhecer a finalidade de receitas, manuais e regulamentos.",
+    texto: "Leia algumas regras de uma das variações da brincadeira “amarelinha”.\n\nSó pode pular com o mesmo pé com que começou o jogo (não vale trocar de pé).\nNão pode apoiar a mano ou o outro pé no chão para pegar a pedrinha.\nNão pode pisar na linha ou fora do quadrado.\nNão pode pisar no quadrado em que estiver a pedrinha.\nNão pode jogar a pedrinha no quadrado errado.\n\nAMARELINHA 10. Mapa do Brincar. Folha de S. Paulo. Disponível em: https://mapadobrincar.folha.com.br. Acesso em: 27 out. 2025.\n\nEssas regras da “amarelinha” têm a finalidade de",
+    opcoes: [
+      "explicar a importância da brincadeira.",
+      "informar quantas variações a brincadeira tem.",
+      "explicar o passo a passo da brincadeira inteira.",
+      "orientar sobre o que pode ou não fazer na brincadeira."
     ],
-    7: [
-      { numero: 1, disciplina: "Matemática", descriptor: "Resolver operações com números inteiros", texto: "Qual é o resultado de (-5) + 8 - 3?", opcoes: ["0", "1", "2", "3"], resposta: 1, imagem: "", legendaImagem: "" },
-      { numero: 2, disciplina: "Matemática", descriptor: "Calcular porcentagem", texto: "Qual é 25% de 200?", opcoes: ["25", "50", "75", "100"], resposta: 1, imagem: "", legendaImagem: "" },
-      { numero: 3, disciplina: "Língua Inglesa", descriptor: "Compreender textos em inglês", texto: "What is your name? - My name is _____", opcoes: ["Mary", "am Mary", "is Mary", "are Mary"], resposta: 0, imagem: "", legendaImagem: "" },
-      { numero: 4, disciplina: "Língua Inglesa", descriptor: "Identificar palavras em inglês", texto: "Qual palavra significa 'livro' em inglês?", opcoes: ["Pen", "Book", "Desk", "Door"], resposta: 1, imagem: "", legendaImagem: "" },
-      { numero: 5, disciplina: "Geografia", descriptor: "Identificar elementos climáticos", texto: "Qual é o principal fator que determina o clima de uma região?", opcoes: ["Vegetação", "Latitude", "População", "Arquitetura"], resposta: 1, imagem: "", legendaImagem: "" },
-      { numero: 6, disciplina: "Geografia", descriptor: "Compreender formação de relevos", texto: "As montanhas são formadas por processos de?", opcoes: ["Erosão apenas", "Erosão e deposição", "Deposição apenas", "Evaporação"], resposta: 1, imagem: "", legendaImagem: "" },
-      { numero: 7, disciplina: "Língua Portuguesa", descriptor: "Identificar classe de palavras", texto: "Em 'O menino corre rápido', qual é a função de 'rápido'?", opcoes: ["Nome", "Verbo", "Adjetivo", "Advérbio"], resposta: 3, imagem: "", legendaImagem: "" },
-      { numero: 8, disciplina: "Língua Portuguesa", descriptor: "Compreender figuras de linguagem", texto: "Em 'Seu coração é de pedra', temos que tipo de figura?", opcoes: ["Aliteração", "Metáfora", "Onomatopeia", "Hipérbole"], resposta: 1, imagem: "", legendaImagem: "" },
-      { numero: 9, disciplina: "História", descriptor: "Compreender feudalismo", texto: "O feudalismo era um sistema baseado em?", opcoes: ["Industrialização", "Relações senhor-vassalo", "Democracia", "Monarquia absoluta"], resposta: 1, imagem: "", legendaImagem: "" },
-      { numero: 10, disciplina: "História", descriptor: "Identificar períodos históricos", texto: "A Idade Média durou aproximadamente?", opcoes: ["500 a 1000 anos", "1000 a 1500 anos", "1500 a 2000 anos", "2000 a 2500 anos"], resposta: 1, imagem: "", legendaImagem: "" },
-      { numero: 11, disciplina: "Ciências", descriptor: "Compreender fotossíntese", texto: "Qual é o principal produto da fotossíntese?", opcoes: ["Dióxido de carbono", "Água", "Glicose", "Oxigênio"], resposta: 2, imagem: "", legendaImagem: "" },
-      { numero: 12, disciplina: "Ciências", descriptor: "Identificar tipos de energia", texto: "Qual é uma forma de energia renovável?", opcoes: ["Carvão mineral", "Petróleo", "Energia solar", "Gás natural"], resposta: 2, imagem: "", legendaImagem: "" }
+    resposta: 3,
+    imagem: "",
+    legendaImagem: ""
+  },
+  {
+    numero: 3,
+    disciplina: "Língua Portuguesa",
+    descriptor: "Estabelecer relação entre partes do texto: personagem e ação; ação e tempo; ação e lugar.",
+    texto: "Leia a história em quadrinhos.\n\nBOHLEN, Tabata. Cientirinhas #170. Disponível em: https://dragoesdegaragem.com. Acesso em: 28 out. 2025.\n\nA ação da personagem no último quadrinho demonstra que ela",
+    opcoes: [
+      "tem uma boa comunicação com o pai sobre seus gostos.",
+      "gostaria de um livro sobre os animais “minhocas”.",
+      "demonstrou interesse pelo presente que ganhou.",
+      "aprendeu tudo que precisava com a leitura."
     ],
-    8: [
-      { numero: 1, disciplina: "Matemática", descriptor: "Resolver equações de primeiro grau", texto: "Qual é a solução de 2x + 5 = 13?", opcoes: ["2", "3", "4", "5"], resposta: 2, imagem: "", legendaImagem: "" },
-      { numero: 2, disciplina: "Matemática", descriptor: "Calcular área de figuras planas", texto: "Qual é a área de um quadrado com lado 5cm?", opcoes: ["10 cm²", "15 cm²", "20 cm²", "25 cm²"], resposta: 3, imagem: "", legendaImagem: "" },
-      { numero: 3, disciplina: "Língua Inglesa", descriptor: "Entender presente contínuo", texto: "Complete: I _____ playing football now.", opcoes: ["am", "is", "are", "be"], resposta: 0, imagem: "", legendaImagem: "" },
-      { numero: 4, disciplina: "Língua Inglesa", descriptor: "Identificar phrasal verbs", texto: "Complete: I _____ my homework yesterday.", opcoes: ["turn on", "turn up", "turned in", "turn down"], resposta: 2, imagem: "", legendaImagem: "" },
-      { numero: 5, disciplina: "Geografia", descriptor: "Entender tipos de clima", texto: "O clima tropical é caracterizado por?", opcoes: ["Temperaturas baixas", "Chuvas bem distribuídas", "Temperaturas altas e chuvas abundantes", "Secas prolongadas"], resposta: 2, imagem: "", legendaImagem: "" },
-      { numero: 6, disciplina: "Geografia", descriptor: "Compreender dinâmica populacional", texto: "O deslocamento de pessoas do campo para a cidade é chamado?", opcoes: ["Emigração", "Imigração", "Êxodo rural", "Migração internacional"], resposta: 2, imagem: "", legendaImagem: "" },
-      { numero: 7, disciplina: "Língua Portuguesa", descriptor: "Analisar estrutura textual", texto: "Qual é o principal objetivo de um texto informativo?", opcoes: ["Entreter", "Convencer", "Informar", "Emocionar"], resposta: 2, imagem: "", legendaImagem: "" },
-      { numero: 8, disciplina: "Língua Portuguesa", descriptor: "Compreender vícios de linguagem", texto: "Qual frase contém um exemplo de pleonasmo?", opcoes: ["Ela é muito inteligente", "Subir para cima", "A noite estava escura", "O menino correu rápido"], resposta: 1, imagem: "", legendaImagem: "" },
-      { numero: 9, disciplina: "História", descriptor: "Entender Renascimento", texto: "O Renascimento foi um movimento que ocorreu principalmente?", opcoes: ["Na Idade Média", "Na antiguidade clássica", "Nos séculos XV e XVI", "No século XX"], resposta: 2, imagem: "", legendaImagem: "" },
-      { numero: 10, disciplina: "História", descriptor: "Compreender Reforma Protestante", texto: "A Reforma Protestante começou com?", opcoes: ["Martinho Lutero", "João Calvino", "Henrique VIII", "Thomas Moro"], resposta: 0, imagem: "", legendaImagem: "" },
-      { numero: 11, disciplina: "Ciências", descriptor: "Entender transmissão de calor", texto: "Qual é um exemplo de condução térmica?", opcoes: ["Aquecedor elétrico", "Colher aquecendo na xícara", "Ar quente subindo", "Radiação solar"], resposta: 1, imagem: "", legendaImagem: "" },
-      { numero: 12, disciplina: "Ciências", descriptor: "Compreender reprodução assexuada", texto: "A reprodução por brotamento é um exemplo de?", opcoes: ["Reprodução sexuada", "Reprodução assexuada", "Evolução", "Mutação"], resposta: 1, imagem: "", legendaImagem: "" }
+    resposta: 1,
+    imagem: "",
+    legendaImagem: "Cientirinhas #170: Personagem ganha um livro de física do pai, mas no último quadrinho aparece no quintal brincando com minhocas."
+  },
+  {
+    numero: 4,
+    disciplina: "Língua Portuguesa",
+    descriptor: "Inferir o sentido de palavra, o sentido de expressão ou o assunto em cartas, contos, tirinhas e histórias em quadrinhos com o apoio de linguagem verbal e não verbal.",
+    texto: "Leia a história em quadrinhos.\n\nHUMOR COM CIÊNCIA. Experimento? Disponível em: www.humorcomciencia.com. Acesso em: 28 out. 2025.\n\nNo contexto da história em quadrinhos, “supor” significa",
+    opcoes: [
+      "ter certeza de que algo é verdadeiro.",
+      "imaginar que algo possa ser verdadeiro.",
+      "copiar a ideia de outra pessoa sem pensar.",
+      "provar que algo é verdadeiro por meio de testes."
     ],
-    9: [
-      { numero: 1, disciplina: "Matemática", descriptor: "Resolver sistema de equações", texto: "Qual é a solução do sistema x + y = 5 e x - y = 1?", opcoes: ["x=2, y=3", "x=3, y=2", "x=4, y=1", "x=1, y=4"], resposta: 1, imagem: "", legendaImagem: "" },
-      { numero: 2, disciplina: "Matemática", descriptor: "Calcular teorema de Pitágoras", texto: "Em um triângulo retângulo com catetos 3 e 4, qual é a hipotenusa?", opcoes: ["5", "6", "7", "8"], resposta: 0, imagem: "", legendaImagem: "" },
-      { numero: 3, disciplina: "Língua Inglesa", descriptor: "Entender condicional", texto: "Complete: If I _____ rich, I would travel.", opcoes: ["am", "was", "were", "been"], resposta: 2, imagem: "", legendaImagem: "" },
-      { numero: 4, disciplina: "Língua Inglesa", descriptor: "Compreender passive voice", texto: "A voz passiva de 'They built this house' é?", opcoes: ["This house was built", "This house is built", "This house are built", "Building this house"], resposta: 0, imagem: "", legendaImagem: "" },
-      { numero: 5, disciplina: "Geografia", descriptor: "Entender globalização", texto: "A globalização é caracterizada por?", opcoes: ["Isolamento de países", "Interconexão global", "Independência econômica", "Redução de comércio"], resposta: 1, imagem: "", legendaImagem: "" },
-      { numero: 6, disciplina: "Geografia", descriptor: "Compreender desenvolvimento sustentável", texto: "O desenvolvimento sustentável busca?", opcoes: ["Lucro máximo", "Equilíbrio econômico, social e ambiental", "Crescimento sem limite", "Proteção apenas ambiental"], resposta: 1, imagem: "", legendaImagem: "" },
-      { numero: 7, disciplina: "Língua Portuguesa", descriptor: "Analisar estilo de autor", texto: "A análise do estilo de um autor inclui?", opcoes: ["Apenas ortografia", "Sintaxe, vocabulário e recursos estilísticos", "Somente pontuação", "Apenas concordância"], resposta: 1, imagem: "", legendaImagem: "" },
-      { numero: 8, disciplina: "Língua Portuguesa", descriptor: "Compreender gênero textual", texto: "Um artigo de opinião é um texto que?", opcoes: ["Apenas informa", "Expõe argumentos pessoais", "Apenas entreté", "Apenas descreve"], resposta: 1, imagem: "", legendaImagem: "" },
-      { numero: 9, disciplina: "História", descriptor: "Entender Revolução Industrial", texto: "A Revolução Industrial começou?", opcoes: ["Na Itália", "Na Inglaterra", "Na França", "Na Alemanha"], resposta: 1, imagem: "", legendaImagem: "" },
-      { numero: 10, disciplina: "História", descriptor: "Compreender Guerra Fria", texto: "A Guerra Fria foi um conflito entre?", opcoes: ["EUA e URSS", "EUA e China", "Rússia e Europa", "Ásia e América"], resposta: 0, imagem: "", legendaImagem: "" },
-      { numero: 11, disciplina: "Ciências", descriptor: "Entender reações químicas", texto: "Em uma reação química, o que sempre ocorre?", opcoes: ["Mudança de estado", "Rearranjo de átomos", "Aumento de massa", "Diminuição de energia"], resposta: 1, imagem: "", legendaImagem: "" },
-      { numero: 12, disciplina: "Ciências", descriptor: "Compreender evolução", texto: "A seleção natural é um mecanismo da?", opcoes: ["Mutação", "Evolução", "Reprodução", "Adaptação"], resposta: 1, imagem: "", legendaImagem: "" }
-    ]
-  };
+    resposta: 1,
+    imagem: "",
+    legendaImagem: "Tirinha intitulada Experimento? onde uma personagem levanta a hipótese sobre o sabor de um bolo."
+  },
+  {
+    numero: 5,
+    disciplina: "Língua Portuguesa",
+    descriptor: "Identificar o tema de um texto.",
+    texto: "Considere a charge.\n\nARIONAURO. Disponível em: www.arionaurocartuns.com.br. Acesso em: 28 out. 2025.\n\nO tema da charge é o",
+    opcoes: [
+      "combate à dengue.",
+      "desperdício de água.",
+      "incentivo à limpeza urbana.",
+      "uso exagerado de redes sociais."
+    ],
+    resposta: 1,
+    imagem: "",
+    legendaImagem: "Charge de Arionauro mostrando um homem usando o celular enquanto lava a calçada com mangueira, deixando a água escorrer pelo ralo."
+  },
+  {
+    numero: 6,
+    disciplina: "Língua Portuguesa",
+    descriptor: "Estabelecer relação entre partes do texto: personagem e ação; ação e tempo; ação e lugar.",
+    texto: "Leia a charge.\n\nDisponível em: https://beta.portalodia.com/. Acesso em: 22 ago. 2025.\n\nA ação do personagem, unindo expressão facial e o demonstrar dos bolsos da calça, indica",
+    opcoes: [
+      "irritação pelo preço gasto com a conta mensal.",
+      "desespero em relação ao aumento da conta de luz.",
+      "satisfação em estar na mesma situação da lâmpada.",
+      "demonstração de descuido em relação ao seu dinheiro."
+    ],
+    resposta: 1,
+    imagem: "",
+    legendaImagem: "Charge com teor crítico sobre o aumento da conta de luz, unindo elementos verbais e não verbais com o personagem puxando os bolsos para fora."
+  },
+  {
+    numero: 7,
+    disciplina: "Língua Portuguesa",
+    descriptor: "Reconhecer relação de causa e consequência em poemas, contos e tirinhas.",
+    texto: "Leia a tirinha.\n\nDisponível em: www.willtirando.com.br. Acesso em: 18 dez. 2025.\n\nNa tirinha, a causa de Alberto não gostar mais de refletir no penhasco é o(a)",
+    opcoes: [
+      "paisagem do local.",
+      "altura do penhasco.",
+      "ataque dos pássaros.",
+      "momento do anoitecer."
+    ],
+    resposta: 2,
+    imagem: "",
+    legendaImagem: "Tirinha do Will Tirando mostrando o personagem Alberto em um penhasco sendo atacado por pássaros."
+  },
+  {
+    numero: 8,
+    disciplina: "Língua Portuguesa",
+    descriptor: "Inferir efeito de humor em tirinhas e histórias em quadrinhos.",
+    texto: "Leia a tirinha.\n\nDisponível em: https://buzga.wordpress.com/. Acesso em: 18 dez. 2025.\n\nO efeito de humor da tirinha é construído porque Buzga",
+    opcoes: [
+      "surpreende o amigo ao preparar um lanche.",
+      "compreende o sentido equivocado de “partir”.",
+      "interpreta equivocadamente o sentido da pergunta.",
+      "pede que o amigo tenha calma, enquanto ele tem pressa."
+    ],
+    resposta: 2,
+    imagem: "",
+    legendaImagem: "Tirinha do Buzga brincando com a polissemia da expressão 'partiu?' usada pelo amigo."
+  }
+  
+  ],
+  7:
+[ {
+    numero: 1,
+    disciplina: "Matemática",
+    descriptor: "Localizar um ponto ou objeto em uma malha quadriculada ou croqui, a partir de duas coordenadas ou duas ou mais referências.",
+    texto: "Na malha quadriculada a seguir, estão posicionados diferentes vasos de plantas da família dos cactos. Qual o vaso que está na posição A2?",
+    opcoes: ["Vaso na posição A5", "Vaso na posição D2", "Vaso na posição A2", "Vaso na posição E4"],
+    resposta: 2,
+    imagem: "",
+    legendaImagem: "Vasos de cactos na malha quadriculada de A a E e 1 a 5"
+  },
+  {
+    numero: 2,
+    disciplina: "Matemática",
+    descriptor: "Localizar um ponto ou objeto em uma malha quadriculada ou croqui, a partir de duas coordenadas ou duas ou mais referências.",
+    texto: "O jogo Batalha Naval foi criado por soldados russos durante a Primeira Guerra Mundial. Nele, cada participante posiciona navios em uma malha quadriculada, e o oponente deve tentar descobrir a posição desses navios. Considere a malha a seguir: Qual é a posição do submarino nesta malha?",
+    opcoes: ["(3,4)", "(4,3)", "(4,5)", "(5,4)"],
+    resposta: 1,
+    imagem: "",
+    legendaImagem: "Submarino posicionado no plano cartesiano / malha quadriculada"
+  },
+  {
+    numero: 3,
+    disciplina: "Matemática",
+    descriptor: "Reconhecer, dentre um conjunto de polígonos, aquele que possui o maior número de ângulos.",
+    texto: "Yuri é skatista e gosta de fazer manobras radicais. Certo dia, ele ligou o GPS e, depois de andar de skate, observou na tela do aparelho que seus movimentos haviam formado alguns polígonos irregulares. Na primeira volta, ele 'desenhou' um polígono de 10 lados; na segunda, um polígono de 8 lados; na terceira, um polígono de 6 lados; e, na quarta, um polígono de 9 lados. Em qual volta Yuri formou o polígono com maior número de ângulos?",
+    opcoes: ["1", "2", "3", "4"],
+    resposta: 0,
+    imagem: "",
+    legendaImagem: ""
+  },
+  {
+    numero: 4,
+    disciplina: "Matemática",
+    descriptor: "Reconhecer, dentre um conjunto de polígonos, aquele que possui o maior número de ângulos.",
+    texto: "Para fazer um cartão de aniversário, Tiago vai usar como base uma figura geométrica plana. Observe as opções que ele tem. Qual figura geométrica tem o maior número de ângulos?",
+    opcoes: ["Triângulo", "Hexágono", "Quadrado", "Pentágono"],
+    resposta: 1,
+    imagem: "",
+    legendaImagem: "Opções de polígonos: triângulo, hexágono, pentágono e quadrado"
+  },
+  {
+    numero: 5,
+    disciplina: "Matemática",
+    descriptor: "Reconhecer la planificação de uma pirâmide dentre um conjunto de planificações.",
+    texto: "Em uma confeitaria, os doces são vendidos em embalagens de diferentes formatos. Elas ficam abertas e empilhadas; por isso, antes de serem preenchidas, é necessário montá-las. Considere algumas dessas embalagens desmontadas. Qual das caixas, ao ser montada, formará uma embalagem em formato de pirâmide?",
+    opcoes: ["I", "II", "III", "IV"],
+    resposta: 1,
+    imagem: "",
+    legendaImagem: "Planificações numeradas de I a IV"
+  },
+  {
+    numero: 6,
+    disciplina: "Matemática",
+    descriptor: "Reconhecer a planificação de um cubo dentre um conjunto de planificações apresentadas.",
+    texto: "Um arquiteto está projetando uma escultura com 6 faces para uma praça pública. Para facilitar a construção, ele precisa desenhar a planificação dela, mostrando todas as faces em um único plano. A planificação do sólido escolhido pelo arquiteto é representada por:",
+    opcoes: ["A", "B", "C", "D"],
+    resposta: 1,
+    imagem: "",
+    legendaImagem: "Opções de planificações geométricas planares"
+  },
+  {
+    numero: 7,
+    disciplina: "Matemática",
+    descriptor: "Determinar a área de figuras desenhadas em malhas quadriculadas por meio de contagem.",
+    texto: "Um profissional de marketing está criando um desenho ampliado para um cartaz. Primeiro, ele desenhou uma figura em uma malha quadriculada, em que cada quadradinho corresponde a 1 unidade de área (u.a.). Em seguida, ampliou o desenho, dobrando todas as medidas da figura original. A figura a seguir mostra a imagem original e sua ampliação. A área da figura ampliada é, em unidade de área (u.a.), equivalente a:",
+    opcoes: ["4", "8", "12", "16"],
+    resposta: 3,
+    imagem: "",
+    legendaImagem: "Quadrado original de lado 2 e sua ampliação de lado 4 na malha"
+  },
+  {
+    numero: 8,
+    disciplina: "Matemática",
+    descriptor: "Determinar a área de um terreno retangular representado em uma malha quadriculada.",
+    texto: "Enquanto Gabriela analisava a planta de um espaço em seu sítio para realizar uma obra, percebeu que ele tinha 4 m de largura e 6 m de comprimento. No entanto, precisava do dobro da largura; por isso, redesenhou a planta proporcionalmente, de modo que a largura passasse a medir 8 m. Mantendo a forma do retângulo original, o espaço passou a ter:",
+    opcoes: ["24 m²", "48 m²", "72 m²", "96 m²"],
+    resposta: 3,
+    imagem: "",
+    legendaImagem: "Retângulo original (4x6) e sua ampliação proporcional (8x12) na malha"
+  }
+ 
+   ],
+  8: [
+  {
+    numero: 1,
+    disciplina: "Língua Portuguesa",
+    descriptor: "Localizar informações explícitas em fragmentos de romances e crônicas.",
+    texto: "Leia o fragmento da crônica.\n\nO Amigo chega de longe – de há 48 anos. Está novo em folha, em sua magreza de folha. Tem o rosto marcado pelo tempo? É como se não tivesse. Os cabelos são pretos, a voz mansa e baixa, como antigamente, como sempre. Sobretudo, o modo de ser e o próprio ser não mudaram. É minha mudança que eu toco, diante de sua permanência. Então me divirto chamando-o de velho, por outras palavras. Invento, a meu favor, uma absurda diferença de idades. Ele sorri e desmente, sereno. Tem de seu lado a memória – essa memória de espelho, a cuja superfície as coisas vêm boiar com o relevo e a cor naturais. E vêm as coisas. O jogo era simples preliminar à entrada em matéria.\n\nANDRADE, Carlos Drummond de. O amigo que chega de longe. Disponível em: https://cronicabrasileira.org.br. Acesso em: 22 out. 2025.\n\nNa crônica, o narrador percebe que a principal diferença entre ele e o amigo está no fato de que",
+    opcoes: [
+      "o narrador continua o mesmo, e o amigo é quem parece ter se transformado muito.",
+      "ambos mudaram de maneira semelhante, mas o narrador sente-se mais nostálgico.",
+      "o amigo envelheceu bastante, embora ainda mantenha a voz e o olhar de antigamente.",
+      "o amigo manteve a aparência e o modo de ser, enquanto ele próprio mudou com o tempo."
+    ],
+    resposta: 3,
+    imagem: "",
+    legendaImagem: ""
+  },
+  {
+    numero: 2,
+    disciplina: "Língua Portuguesa",
+    descriptor: "Inferir tema e ideia principal em notícias, crônicas e poemas.",
+    texto: "Leia o trecho da crônica.\n\nDepois dos anos em que tomei forma, em que cresci, amei, criei filha e me fiz escritora, eis que volto ao paraíso, aquele céu que é a infância, e para o qual decerto voltaremos todos, no dia final. Existe uma casa em São Paulo – rua Piauí, 36 – onde o respeito humano vigia, e sentou guarda: todas as vezes que vou à minha terra tenho vontade de me apresentar diante da grade daquele jardim, bater palmas e dizer:\n— Dá licença de entrar?\nSe eu vencesse o anjo de espada de fogo, talvez me libertasse desse complexo. Quem sabe se eu, abrindo a porta do paraíso da minha infância, visse tudo feio e acanhado, sujo, envelhecido, me voltasse de braços abertos para o cenário do presente! Mas sei que não terei coragem.\n— Perdão, que quer a senhora?\n— Nada. Eu morei aqui há muitos, muitos anos; era uma criança. Só quero ver…\n\nQUEIROZ, Dinah Silveira de. Rua Piauí, 36. Disponível em: https://cronicabrasileira.org.br. Acesso em: 23 out. 2025.\n\nO tema central desenvolvido pela narradora na crônica é o(a).",
+    opcoes: [
+      "importância de preservar a memória familiar por meio das lembranças da infância.",
+      "medo de perder as lembranças antigas diante das mudanças trazidas pela vida adulta.",
+      "alegria de retornar à casa da infância e reencontrar pessoas e lugares que marcaram sua vida.",
+      "dificuldade de revisitar o passado e encarar a distância entre a infância idealizada e o presente."
+    ],
+    resposta: 3,
+    imagem: "",
+    legendaImagem: ""
+  },
+  {
+    numero: 3,
+    disciplina: "Língua Portuguesa",
+    descriptor: "Reconhecer o sentido estabelecido pelo uso de expressões, de pontuação, de conjunções em poemas, charges e fragmentos de romances.",
+    texto: "Leia o trecho.\n\nA minha situação no Rio estava garantida. Obteria um emprego. Um dia pelos outros iria às aulas, e todo o fim de ano, during seis, faria os exames, ao fim dos quais seria doutor! Ah! Seria doutor! Resgataria o pecado original do meu nascimento humilde, amaciaria o suplício premente, cruciante e onímodo de minha cor... Nas dobras do pergaminho da carta, traria presa a consideração de toda a gente. Seguro do respeito à minha majestade de homem, andaria com ela mais firme pela vida em fora. Não titubearia, não hesitaria, livremente poderia falar, dizer bem alto os pensamentos que se estorciam no meu cérebro.\n\nBARRETO, Lima. Recordações do Escrivão Isaías Caminha. Disponível em: www.dominiopublico.gov.br. Acesso em: 23 out. 2025.\n\nNo trecho, o uso de exclamações indica o(a)",
+    opcoes: [
+      "desânimo do narrador em relação à própria situação.",
+      "entusiasmo do narrador diante de suas expectativas.",
+      "indiferença do narrador em relação à opinião dos outros.",
+      "dúvida do narrador sobre conseguir realizar seus objetivos."
+    ],
+    resposta: 1,
+    imagem: "",
+    legendaImagem: ""
+  },
+  {
+    numero: 4,
+    disciplina: "Língua Portuguesa",
+    descriptor: "Inferir informações em fragmentos de romance",
+    texto: "Leia o trecho.\n\nQueria evitar, mas me vejo obrigado a falar na literatura da Bruzundanga. É um capítulo dos mais delicados, para tratar do qual não me sinto completamente habilitado.\nDissertar sobre uma literatura estrangeira supõe, entre muitas, o conhecimento de duas cousas primordiais: ideias gerais sobre literatura e compreensão fácil do idioma desse povo estrangeiro. Eu cheguei a entender perfeitamente a língua da Bruzundanga, isto é, a língua falada pela gente instruída e a escrita por muitos escritores que julguei excelentes; mas aquela em que escreviam os literatos importantes, solenes, respeitados, nunca consegui entender, porque redigem eles as suas obras, ou antes, os seus livros, em outra muito diferente da usual, outra essa que consideram como sendo a verdadeira, a lídima, justificando isso por ter feição antiga de dois séculos ou três.\nQuanto mais incompreensível é ela, mais admirado é o escritor que a escreve, por todos que não lhe entenderam o escrito.\n\nBARRETO, Lima. Os Bruzundangas. Disponível em: www.dominiopublico.gov.br. Acesso em: 23 out. 2025.\n\nNo trecho, o narrador sugere que a literatura de Bruzundanga é, em geral,",
+    opcoes: [
+      "difícil de entender, mas acessível a todos os leitores.",
+      "cansativa, uma vez que copia ideias de outros autores.",
+      "direta e clara, com pouca diferença em relação à língua falada pelo povo.",
+      "escrita em linguagem complicada, valorizando o autor que poucos entendem."
+    ],
+    resposta: 3,
+    imagem: "",
+    legendaImagem: ""
+  },
+  {
+    numero: 5,
+    disciplina: "Língua Portuguesa",
+    descriptor: "Reconhecer o sentido de expressão e de variantes linguísticas em letras de música, tirinhas, poemas e fragmentos de romances.",
+    texto: "Analise a tirinha.\n\nDisponível em: https://www.facebook.com/. Acesso em: 25 ago. 2025.\n\nO sentido da expressão “Que calor!” muda ao longo da tirinha, indicando que causa do calor é uma consequência da(o)",
+    opcoes: [
+      "falta de tomar água.",
+      "ausência de árvores.",
+      "ação de caminhar rápido.",
+      "desaparecimento de animais."
+    ],
+    resposta: 1,
+    imagem: "",
+    legendaImagem: "Tirinha do personagem Armandinho mudando o sentido da expressão sobre o calor ao encontrar uma árvore."
+  },
+  {
+    numero: 6,
+    disciplina: "Língua Portuguesa",
+    descriptor: "Inferir o efeito de sentido de linguagem verbal e não verbal em charges e história em quadrinhos.",
+    texto: "Observe a tirinha.\n\nDAHMER, André. [Amigos imaginários]. Disponível em: https://cartum.folha.uol.com.br. Acesso em: 17 out. 2025.\n\nNa tirinha, o humor é criado principalmente pelo(a)",
+    opcoes: [
+      "crítica à falta de amigos reais do personagem principal.",
+      "ambiguidade presente na resposta do homem à mulher.",
+      "dificuldade de compreensão e diálogo entre os personagens.",
+      "linguagem corporal exagerada dos personagens durante o diálogo."
+    ],
+    resposta: 1,
+    imagem: "",
+    legendaImagem: "Tirinha de André Dahmer (Amigos Imaginários) contendo diálogo irônico entre um homem e uma mulher."
+  },
+  {
+    numero: 7,
+    disciplina: "Língua Portuguesa",
+    descriptor: "Inferir o sentido de palavra ou expressão em história em quadrinhos, poemas e fragmentos de romances.",
+    texto: "Analise o texto.\n\nDisponível em: http://www.willtirando.com.br. Acesso em: 18/12/2025.\n\nNa fala final, a palavra “mentir” é usada para indicar que a professora",
+    opcoes: [
+      "demonstra dúvida ao realizar a correção.",
+      "elogia o aluno para incentivá-lo a continuar.",
+      "valoriza o traçado do desenho em vez do conteúdo.",
+      "expressa uma avaliação baseada em critérios didáticos."
+    ],
+    resposta: 1,
+    imagem: "",
+    legendaImagem: "Tirinha mostrando o momento da correção de uma prova onde o termo 'mentir' assume sentido figurado."
+  },
+  {
+    numero: 8,
+    disciplina: "Língua Portuguesa",
+    descriptor: "Inferir informação em contos, crônicas, notícias e charges.",
+    texto: "Analise o texto.\n\nDisponível em: http://www.willtirando.com.br. Acesso em: 18/12/2025.\n\nA atitude de Almir diante dos fantasmas sugere que ele",
+    opcoes: [
+      "finge não os perceber para manter a rotina.",
+      "evita enfrentá-los por medo de ser atacado.",
+      "age como se eles fossem visitantes comuns.",
+      "acredita que se manifestam quando estão sozinhos."
+    ],
+    resposta: 0,
+    imagem: "",
+    legendaImagem: "Tirinha retratando o personagem Almir convivendo e ignorando a presença de fantasmas ao seu redor."
+  }
+],
+  9: [
+  {
+    numero: 1,
+    disciplina: "Matemática",
+    descriptor: "Associar um número racional que representa uma quantia monetária, escrito por extenso, a sua representação decimal.",
+    texto: "Patrícia estava pesquisando preços para comprar um sofá novo quando a atendente respondeu por áudio. Patrícia, então, ativou o recurso de transcrição, e o valor mencionado apareceu como “dois mil e vinte e sete reais e quarenta e dois centavos”. O valor, em representação decimal, é",
+    opcoes: ["R$ 227,02.", "R$ 227,42.", "R$ 2.027,02.", "R$ 2.027,42."],
+    resposta: 3,
+    imagem: "",
+    legendaImagem: ""
+  },
+  {
+    numero: 2,
+    disciplina: "Matemática",
+    descriptor: "Determinar, em situação-problema, a adição e multiplicação entre números racionais, envolvendo divisão por números inteiros.",
+    texto: "Em uma loja de calçados, 25 pares de um determinado modelo de tênis estão disponíveis para venda. No primeiro dia, foram vendidos 5 pares, restando 20. No dia seguinte, dos 20 pares disponíveis, 12 foram vendidos, e os demais ficaram para o dia posterior. Qual é o valor da soma das frações vendidas em cada um dos dois primeiros dias?",
+    opcoes: ["15", "25", "35", "45"],
+    resposta: 3,
+    imagem: "",
+    legendaImagem: ""
+  },
+  {
+    numero: 3,
+    disciplina: "Matemática",
+    descriptor: "Reconhecer a fração que corresponde à relação parte-todo entre uma figura e suas partes hachuradas.",
+    texto: "A ocupação das vagas de um pequeno estacionamento é monitorada por meio de uma tela, na qual as vagas ocupadas são representadas por retângulos hachurados, e as vagas disponíveis, por retângulos em branco. No momento atual, ao visualizar a tela, considera-se a configuração a seguir. Considerando a tela atual, qual é a fração de vagas preenchidas no estacionamento?",
+    opcoes: ["35", "15", "25", "1120"],
+    resposta: 0,
+    imagem: "",
+    legendaImagem: "Configuração da tela de vagas do estacionamento mostrando retângulos hachurados e em branco"
+  },
+  {
+    numero: 4,
+    disciplina: "Matemática",
+    descriptor: "Determinar uma fração irredutível, equivalente a uma fração dada, a partir da simplificação por três.",
+    texto: "Foi realizado um levantamento com os moradores de uma rua de determinado bairro para saber quantos possuem carro próprio para se deslocar. Todos os 69 moradores da rua foram entrevistados e verificou-se que apenas 12 deles têm carro próprio. Qual é o fração irredutível que representa a razão entre o número de moradores que possuem carro próprio e o número total de moradores da rua?",
+    opcoes: ["423", "323", "1269", "1923"],
+    resposta: 0,
+    imagem: "",
+    legendaImagem: ""
+  },
+  {
+    numero: 5,
+    disciplina: "Matemática",
+    descriptor: "Determinar a soma, a diferença, o produto ou o quociente de números inteiros em situações-problema.",
+    texto: "Uma poupança contém inicialmente 1.000 reais. O banco onde ela foi aberta oferece uma taxa de rendimento de 0,5% ao mês, ou seja, o valor investido aumenta nessa porcentagem a cada mês. Após um mês de aplicação, quando o rendimento foi creditado apenas uma vez, foi realizada uma retirada de 568 reais. O valor que permaneceu na poupança, em reais, é",
+    opcoes: ["437.", "432.", "427.", "419."],
+    resposta: 0,
+    imagem: "",
+    legendaImagem: ""
+  },
+  {
+    numero: 6,
+    disciplina: "Matemática",
+    descriptor: "Determinar a porcentagem envolvendo números inteiros.",
+    texto: "Desconsiderando o Distrito Federal, o Brasil possui 26 estados, também chamados de unidades federativas. Desses, nove estão na região Nordeste, três na região Centro-Oeste, sete na região Norte, quatro na região Sudeste e três na região Sul. Em relação ao total de estados do Brasil (desconsiderando o Distrito Federal), os estados das regiões Nordeste e Sudeste representam",
+    opcoes: ["15%.", "35%.", "46%.", "50%."],
+    resposta: 3,
+    imagem: "",
+    legendaImagem: ""
+  },
+  {
+    numero: 7,
+    disciplina: "Matemática",
+    descriptor: "Localizar o valor que representa um número inteiro positivo associado a um ponto indicado em uma reta numérica.",
+    texto: "Em um aplicativo de monitoramento de atividades físicas, a variação diária de passos é representada em uma reta numérica, em que cada ponto indica um número inteiro. Considere a reta numérica apresentada a Fabíola. O número inteiro positivo que corresponde ao ponto P é",
+    opcoes: ["3.", "4.", "5.", "6."],
+    resposta: 1,
+    imagem: "",
+    legendaImagem: "Reta numérica com números inteiros indicando a posição do ponto P"
+  },
+  {
+    numero: 8,
+    disciplina: "Matemática",
+    descriptor: "Localizar números inteiros negativos na reta numérica.",
+    texto: "Caique fez uma viagem no inverno e resolveu registrar, em um aplicativo, as temperaturas da cidade. Para isso, precisava marcar o valor diário em uma reta numérica. No terceiro dia de viagem, ele fez a marcação no ponto Q indicado na imagem a seguir. A temperatura registrada naquele dia foi de",
+    opcoes: ["3.", "2.", "−3.", "−4."],
+    resposta: 2,
+    imagem: "",
+    legendaImagem: "Reta numérica contendo números inteiros positivos e negativos indicando a posição do ponto Q"
+  }
+],
+  10: [
+  {
+    numero: 1,
+    disciplina: "Língua Portuguesa",
+    descriptor: "Inferir o sentido de palavra em letras de música e reportagens.",
+    texto: "Leia o texto.\n\nTema da redação do Enem ajuda a debater etarismo, dizem professores\nPara especialistas, exame trouxe um tema relevante e atual\n\nO tema da redação do Exame Nacional do Ensino Médio (Enem), “Perspectivas acerca do envelhecimento na sociedade brasileira”, ajuda a promover debates atuais como violações de direitos e etarismo, que é o preconceito contra uma pessoa por causa de sua idade.\n[…]\nDebate importante\nA presidente da União Nacional dos Estudantes (UNE), Bianca Borges, defendeu que o tema provoca debate sobre os desafios para o acesso ao trabalho digno, para acesso à previdência social e à saúde pública de qualidade.\n\"Todos esses desafios demandam o desenvolvimento de políticas públicas. Esse aspecto é muito importante e também traz debate social e cultural que diz respeito à nossa compreensão sobre as pessoas mais velhas\".\nEla acrescenta que, graças à democratização do acesso ao ensino superior, o perfil dos alunos mudou muito. \"A gente tem a felicidade de ver pessoas com mais de 60, 70, às vezes 80 anos realizando o sonho de estar dentro da sala de aula ao lado dos mais jovens. Isso é muito importante\".\n\nFERREIRA, Luiz Claudio. Tema da redação do Enem ajuda a debater etarismo, dizem professores. Agência Brasil, [s. d.]. Disponível em: https://agenciabrasil.ebc.com.br/. Acesso em: 12 nov. 2025. (Adaptado.)\n\nNo texto, as palavras “etarismo” e “democratização” são usadas com sentidos específicos, que significam, respectivamente",
+    opcoes: [
+      "estudo da velhice e expansão física de universidades públicas no País.",
+      "envelhecimento natural e aumento da participação política entre idosos.",
+      "preconceito baseado na idade e ampliação do acesso de diferentes grupos ao ensino superior.",
+      "conjunto de políticas destinadas aos idosos e formação de centros comunitários para estudantes mais velhos.",
+      "respeito às pessoas idosas e crescimento do número de estudantes mais velhos no ensino superior no Brasil."
+    ],
+    resposta: 2,
+    imagem: "",
+    legendaImagem: ""
+  },
+  {
+    numero: 2,
+    disciplina: "Língua Portuguesa",
+    descriptor: "Localizar informações explícitas em infográficos, reportagens, crônicas e artigos.",
+    texto: "Leia o texto.\n\nLei que criminaliza a violência política de gênero completa 4 anos nesta segunda-feira (4)\nDenúncias podem ser feitas através da página da Ouvidoria da Mulher do TRE-PE\n\nNesta segunda-feira (4), a Lei nº 14.192/2021 completa quatro anos de vigência. A norma representou um marco importante no enfrentamento à violência política de gênero no Brasil, ao alterar o Código Eleitoral para estabelecer regras claras de prevenção, repressão e punição a esse tipo de crime. A legislação é um marco na luta por igualdade nos espaços de poder, ao definir como crime qualquer ação, omissão ou conduta que tenha como objetivo impedir, dificultar ou restringir o exercício dos direitos políticos das mulheres, sejam elas candidatas ou ocupantes de cargos eletivos.\n[…]\nAlém da agressão física, a lei reconhece também práticas de violência psicológica, simbólica e moral, puníveis com pena de 1 a 4 anos de reclusão e multa. Quando a vítima for idosa, gestante ou pessoa com deficiência, a pena pode chegar a 5 anos e 4 meses.\n\nLEI que criminaliza a violência política de gênero completa 4 anos nesta segunda-feira (4). TRE-PE, ago. 2025. Disponível em: www.tre-pe.jus.br. Acesso em: 05 nov. 2025. (Adaptado.)\n\nUma informação explícita no texto é a de que a(s)",
+    opcoes: [
+      "denúncias de violência política somente podem ser feitas presencialmente nos tribunais eleitorais.",
+      "pena máxima prevista em qualquer situação de violência política no Brasil é de 4 anos de reclusão e multa.",
+      "Lei nº 14.192/2021 prevê punição estrita para casos de violência física cometidos contra candidatas durante campanhas eleitorais.",
+      "Lei compreende a violência política de gênero como uma série de práticas que impedem candidatas de se elegerem a cargos políticos.",
+      "legislação de que trata o texto completou quatro anos de vigência e estabelece regras de prevenção, repressão e punição para a violência política de gênero."
+    ],
+    resposta: 4,
+    imagem: "",
+    legendaImagem: ""
+  },
+  {
+    numero: 3,
+    disciplina: "Língua Portuguesa",
+    descriptor: "Reconhecer a ideia comum entre textos de gêneros diferentes e a ironia em tirinhas.",
+    texto: "Leia o cartum.\n\nDisponível em: www.instagram.com. Acesso em: 15 de nov. 2025.\n\nA ironia está centrada na oposição de sentidos entre as palavras “sonhos” e “despertador”, porque",
+    opcoes: [
+      "gera um contraste com a ideia de esperança associada aos sonhos.",
+      "cria um conflito temporal entre passado (sonhos) e presente (despertador).",
+      "representa o futuro alegoricamente por meio do despertador, indicando incertezas.",
+      "intensifica uma mensagem motivadora da realidade por meio dos símbolos oníricos.",
+      "contrapõe a objetividade que os sonhos representam da subjetividade do despertador."
+    ],
+    resposta: 0,
+    imagem: "",
+    legendaImagem: "Cartum satírico que contrasta mensagens motivacionais sobre perseguir sonhos com a chegada de um despertador que acorda o personagem para a realidade."
+  },
+  {
+    numero: 4,
+    disciplina: "Língua Portuguesa",
+    descriptor: "Inferir informação, o sentido e o efeito de sentido produzido por expressão em reportagens e tirinhas.",
+    texto: "Leia a charge.\n\nDisponível em: https://blogdoaftm.com.br/. Acesso em: 8 ago. 2025.\n\nConsiderando a função crítica da charge e a forma como diferentes mídias abordam o tema das mudanças climáticas, ela",
+    opcoes: [
+      "utiliza o humor e o absurdo para reforçar a ideia de que mudanças climáticas são naturais e inevitáveis, sendo, portanto, aceitas com naturalidade pela sociedade.",
+      "denuncia, de forma crítica e irônica, como os efeitos extremos das mudanças climáticas têm se tornado tão frequentes que já não causam mais surpresa.",
+      "informa de forma imparcial sobre as mudanças climáticas, apoiando-se apenas em dados científicos e evitando qualquer posicionamento crítico.",
+      "apresenta uma crítica direta à cobertura midiática sensacionalista, ao ironizar a forma como os veículos de imprensa exploram o tema.",
+      "procura amenizar a gravidade das mudanças climáticas, sugerindo que os phenomena são exagerados pela mídia para causar impacto."
+    ],
+    resposta: 1,
+    imagem: "",
+    legendaImagem: "Charge crítica sobre as mudanças climáticas ironizando a passividade social e a naturalização de eventos ambientais extremos extremos."
+  },
+  {
+    numero: 5,
+    disciplina: "Língua Portuguesa",
+    descriptor: "Reconhecer o tema de uma crônica.",
+    texto: "Leia o texto.\n\nO amor acaba\n\nO amor acaba. Numa esquina, por exemplo, num domingo de lua nova, depois de teatro e silêncio; acaba em cafés engordurados, diferentes dos parques de ouro onde começou a pulsar; de repente, ao meio do cigarro que ele atira de raiva contra um automóvel ou que ela esmaga no cinzeiro repleto, polvilhando de cinzas o escarlate das unhas; […] em todos os lugares o amor acaba; a qualquer hora o amor acaba; por qualquer motivo o amor acaba; para recomeçar em todos os lugares e a qualquer minuto o amor acaba.\n\nCAMPO, Paulo Mendes. O amor acaba: crônicas líricas e existenciais. São Paulo: Companhia das Letras, 2013. (Adaptado.)\n\nA crônica de Paulo Mendes Campos apresenta o amor como um sentimento",
+    opcoes: [
+      "permanente, porque é eterno, constante e imutável.",
+      "imprevisível, pois morre e renasce a qualquer instante.",
+      "banal, dada a desimportância das relações românticas.",
+      "frágil, haja vista a facilidade com que pode chegar ao fim.",
+      "momentâneo, por causa da facilidade de começar e acabar."
+    ],
+    resposta: 1,
+    imagem: "",
+    legendaImagem: ""
+  },
+  {
+    numero: 6,
+    disciplina: "Língua Portuguesa",
+    descriptor: "Reconhecer ironia e efeito de humor em crônicas e entrevistas.",
+    texto: "Leia o texto.\n\nAmor\n\nDona Alda, que já fez bodas de ouro, diz que o amor é principalmente paciência. Indaguei: e tolerância? Ela disse que tolerância é apenas paciência com um pouco de antipatia. E diz que amor é também companhia e amizade. E saudade? […] Não. Afinal, o amor não vai embora. Apenas envelhece, como a gente.\nA jovem recém-casada me diz que o amor é principalmente materialismo. Todos os sonhos das meninas estão errados. Aquelas coisas que se leem nos livros da Coleção das Moças, aqueles devaneios e idealismos e renúncias e purezas, está tudo errado. Quando a gente casa, é que vê que o amor não passa de materialismo.\n\nQUEIROZ, Rachel de. Amor. In: Cenas brasileiras. São Paulo: Ática, 1995. (Coleção Para gostar de ler). (Adaptado.)\n\nA ironia contribui para o efeito de humor do texto ao",
+    opcoes: [
+      "mostrar que a jovem recém-casada acredita que o amor é uma ilusão criada pelos livros, enquanto Dona Alda vê o amor como uma reality prática e duradoura.",
+      "apresentar a visão da jovem recém-casada de que o amor é uma série de compromissos financeiros, enquanto Dona Alda vê o amor como paciência e amizade.",
+      "destacar que a jovem recém-casada crê no amor como uma questão de sobrevivência, enquanto Dona Alda acredita que é uma questão de saudade.",
+      "contrastar a visão materialista da jovem recém-casada com os sonhos idealizados das meninas e com a experiência de vida de Dona Alda.",
+      "contrastar a visão cínica e pragmática de Dona Alda sobre o amor como materialismo com a visão idealista da jovem recém-casada."
+    ],
+    resposta: 3,
+    imagem: "",
+    legendaImagem: ""
+  },
+  {
+    numero: 7,
+    disciplina: "Língua Portuguesa",
+    descriptor: "Reconhecer a finalidade de recurso gráfico em artigos.",
+    texto: "Leia o texto.\n\nO amor é a forma mais bela de sentir\nHoje é dia de celebrar o amor entre duas pessoas que o destino fez questão de juntar. E, embora na verdade não saiba bem o que é o amor do “felizes para sempre”, dos contos de fadas, gosto de observar os pequenos gestos à minha volta.\n\nCUNHA, Maria. O amor é a forma mais bela de sentir. Público, 14 fev. 2022. Disponível em: www.publico.pt. Acesso em: 22 dez. 2025.\n\nO uso das aspas na expressão “felizes para sempre” serve para",
+    opcoes: [
+      "conferir destaque a um conceito extraído de um repertório cultural.",
+      "sinalizar uma expressão estrangeira adaptada à língua portuguesa.",
+      "atribuir um tom irônico a uma expressão considerada ultrapassada.",
+      "isolar uma fala de um personagem fictício citado pela autora do artigo.",
+      "corrigir o sentido de uma palavra utilizada fora de seu contexto original."
+    ],
+    resposta: 2,
+    imagem: "",
+    legendaImagem: ""
+  },
+  {
+    numero: 8,
+    disciplina: "Língua Portuguesa",
+    descriptor: "Reconhecer o sentido e o efeito de sentido produzido pelo uso de recursos morfossintáticos em contos, artigos e crônicas.",
+    texto: "Leia o texto.\n\nO avanço da Inteligência Artificial pode ser a grande inovação da nossa era, mudando hábitos, trabalho e relacionamentos. Muitas pessoas ainda demonstram receio diante dessa tecnologia, especialmente por não compreenderem plenamente seus limites. Por outro lado, o Brasil está entre os quatro países que mais confiam em sistemas de Inteligência Artificial.\n\nMAGNANI, Vitor. Inteligência Artificial: entre o bem e o mal. CNN Brasil, 29 jul. 2023. Disponível em: www.cnnbrasil.com.br. Acesso em: 22 dez. 2025. (Adaptado).\n\nA expressão destacada (“Por outro lado”) estabelece uma relação de",
+    opcoes: [
+      "explicação sobre o funcionamento da inteligência.",
+      "oposição entre o receio geral e os dados nacionais.",
+      "conclusão sobre o nível de confiança na tecnologia.",
+      "finalidade quanto ao uso seguro de novos sistemas.",
+      "acréscimo de informações sobre os limites técnicos."
+    ],
+    resposta: 1,
+    imagem: "",
+    legendaImagem: ""
+  }
+],
+  11: [
+  {
+    numero: 1,
+    disciplina: "Matemática",
+    descriptor: "Resolver problemas utilizando operações fundamentais com números naturais.",
+    texto: "Leia o texto.\n\nBrasil perdeu 30 milhões de hectares por causa de queimadas em 2024; Amazônia é a mais afetada\nUma proporção de vegetação equivalente a quase um quarto (24%) de todo o Brasil queimou pelo menos uma vez entre 1985 e 2024. Desse total, 43% da área foi queimada nos últimos 10 anos (entre 2014 e 2023). [...]\nSomente no 2024, 30 milhões de hectares foram queimados, uma área 62% maior que a média histórica de 18,5 milhões de hectares devastados por ano.\n\nMONTORO, Ana Carolina. G1, 24 jun. 2025. Disponível em: https://g1.globo.com. Acesso em: 21 out. 2025. (Adaptado).\n\nA área queimada em 2024, em metros quadrados, corresponde a",
+    opcoes: [
+      "3 mil.",
+      "300 mil.",
+      "3 bilhões.",
+      "30 bilhões.",
+      "300 bilhões."
+    ],
+    resposta: 4,
+    imagem: "",
+    legendaImagem: ""
+  },
+  {
+    numero: 2,
+    disciplina: "Matemática",
+    descriptor: "Resolver problemas utilizando operações fundamentais com números naturais.",
+    texto: "Um técnico fez um teste em seu computador e verificou que a velocidade de download era de 50 Mb/s e de upload era de 60 Mb/s. Ele fez o download de um arquivo de 3 Gb, preencheu um formulário com seus dados e, em seguida, fez o upload do mesmo arquivo. Sabendo que ele levou 2 minutos para preencher o formulário e que o arquivo não passou por alteração em seu tamanho, quanto tempo durou toda a operação?",
+    opcoes: [
+      "1 min 50 s",
+      "2 min 11 s",
+      "3 min 50 s",
+      "5 min 30 s",
+      "7 min 30 s"
+    ],
+    resposta: 2,
+    imagem: "",
+    legendaImagem: ""
+  },
+  {
+    numero: 3,
+    disciplina: "Matemática",
+    descriptor: "Associar uma tabela de até duas entradas a informações apresentadas textualmente ou em um gráfico de barras ou de linhas.",
+    texto: "A tabela a seguir apresenta as vendas mensais de sacos de cimento em uma loja de materiais de construção, no período de 2020 a 2024.\n\n[Inserir Tabela: Jan a Dez para os anos de 2020 a 2024]\n\nA maior média mensal de vendas foi registrada em",
+    opcoes: [
+      "2020.",
+      "2021.",
+      "2022.",
+      "2023.",
+      "2024."
+    ],
+    resposta: 0,
+    imagem: "",
+    legendaImagem: "Tabela contendo os dados de vendas mensais de sacos de cimento de 2020 a 2024"
+  },
+  {
+    numero: 4,
+    disciplina: "Matemática",
+    descriptor: "Associar um gráfico de setores a dados percentuais apresentados textualmente ou em uma tabela.",
+    texto: "O gráfico a seguir mostra como eram distribuídos os três tipos de redes de telefonia celular ofertados no Brasil em 2020.\n\nDisponível em: www12.senado.leg.br. Acesso em: 24 out. 2025.\n\nCom base na leitura desse gráfico, conclui-se que",
+    opcoes: [
+      "os usuários que tinham acesso apenas à tecnologia 2G eram pouco mais de 1/8 do total.",
+      "os usuários das tecnologias 3G e 2G correspondiam a cerca de 1/3 os usuários do 4G.",
+      "os usuários da tecnologia 4G eram 2/3 do total de usuários.",
+      "o número de usuários do 3G era 1/20 maior que o de 2G.",
+      "o número de usuários do 4G era 50% maior que o de 3G."
+    ],
+    resposta: 0,
+    imagem: "",
+    legendaImagem: "Gráfico de setores indicando a distribuição das redes de telefonia celular 2G, 3G e 4G no Brasil em 2020"
+  },
+  {
+    numero: 5,
+    disciplina: "Matemática",
+    descriptor: "Determinar um valor reajustado de uma quantia a partir de seu valor inicial e do percentual de reajuste.",
+    texto: "Leia o texto.\n\nO preço do café vai subir até 15% nos supermercados brasileiros nos próximos meses, segundo dados da própria indústria.\nParte desse reajuste já foi repassado pelas fabricantes para os supermercados neste mês. Outra parte está em negociação e deve ser implementada até outubro. Após esse aumento já em curso, a indústria projeta que o preço apresente estabilidade ao longo dos próximos meses, pois o setor aposta em uma colheita positiva em 2026, o que ajudaria a repor os estoques.\n\nLUCENA, David. Preço do café deve subir 15% nos supermercados nos próximos meses. Brasil Agro, 26 set. 2025. Disponível em: www.brasilagro.com.br. Acesso em: 21 out. 2025.\n\nSe o preço atual de um pacote de 500 g de café é R$ 30,00 e ocorrer um aumento de 15%, qual será o novo preço do produto?",
+    opcoes: [
+      "R$ 30,15",
+      "R$ 30,50",
+      "R$ 32,00",
+      "R$ 34,50",
+      "R$ 45,00"
+    ],
+    resposta: 3,
+    imagem: "",
+    legendaImagem: ""
+  },
+  {
+    numero: 6,
+    disciplina: "Matemática",
+    descriptor: "Determinar o percentual que representa um valor em relação a outro.",
+    texto: "Uma loja anunciou um desconto de 12% para pagamentos à vista em qualquer produto. Um cliente decidiu comprar uma televisão cujo preço original é R$ 3 000,00 e optou pelo pagamento à vista.\n\nDe acordo com a promoção, qual será o valor do desconto que esse cliente receberá?",
+    opcoes: [
+      "R$ 225,00",
+      "R$ 250,00",
+      "R$ 360,00",
+      "R$ 400,00",
+      "R$ 420,00"
+    ],
+    resposta: 2,
+    imagem: "",
+    legendaImagem: ""
+  },
+  {
+    numero: 7,
+    disciplina: "Matemática",
+    descriptor: "Determinar um valor reajustado de uma quantia a partir de seu valor inicial e do percentual de reajuste.",
+    texto: "Para comprar um carro, Nadia investiu R$ 3.000,00 em uma aplicação financeira que rende 8% ao mês.\n\nApós um mês, sem realizar novos depósitos, o valor total do investimento será de",
+    opcoes: [
+      "R$ 240,00.",
+      "R$ 2 760,00.",
+      "R$ 3 200,00.",
+      "R$ 3 240,00.",
+      "R$ 24 000,00."
+    ],
+    resposta: 3,
+    imagem: "",
+    legendaImagem: ""
+  },
+  {
+    numero: 8,
+    disciplina: "Matemática",
+    descriptor: "Determinar um valor reajustado de uma quantia a partir de seu valor inicial e do percentual de reajuste.",
+    texto: "Uma assinatura mensal de internet custava R$ 150,00. No primeiro semestre, houve um reajuste de 20%. No semestre seguinte, ocorreu um novo reajuste de 10%, aplicado sobre o valor já reajustado.\n\nO valor final da assinatura passou a ser",
+    opcoes: [
+      "R$ 165,00.",
+      "R$ 180,00.",
+      "R$ 190,00.",
+      "R$ 195,00.",
+      "R$ 198,00."
+    ],
+    resposta: 4,
+    imagem: "",
+    legendaImagem: ""
+  }
+]
+};
   // Na implementação real, as questões estão completas. Aqui vou manter um resumo,
   // mas você pode copiar as questões do arquivo anterior que estavam funcionando.
   // Para o código funcionar, preencha com as questões completas ou mantenha as que você já tinha.
@@ -506,12 +1115,12 @@
 function gerarCertificadoComDados(turmaData, acertos, total, percentual) {
   const dataAtual = new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
   const mensagens = [
-    "Parabéns! Esta turma demonstrou dedicação e esforço na preparação para o SARESP 2026. Cada questão respondida é um passo rumo ao sucesso! 🌟",
-    "Vocês são incríveis! O desempenho alcançado reflete o compromisso com a aprendizagem. Continuem assim, o SARESP 2026 será apenas mais uma conquista! 🚀",
-    "A educação transforma vidas. Esta turma mostrou que está no caminho certo. Com foco e determinação, o SARESP 2026 será um grande momento de celebração! 📚",
-    "Grandes resultados nascem de pequenos esforços diários. Parabéns pelo empenho! O SARESP 2026 aguarda por vocês com confiança e esperança. 💪",
-    "Saber é poder, e vocês estão cada vez mais poderosos! O desempenho no Paulistão SARESP é prova de que a aprovação no SARESP 2026 é questão de tempo. ✨",
-    "Turma nota 10! Esse engajamento mostra que o futuro da educação está em boas mãos. Continuem praticando, o SARESP 2026 será o palco do seu brilho! 🎓"
+    "Parabéns! Esta turma demonstrou dedicação e esforço na preparação nas aulas de orientação de estudos 2026. Cada questão respondida é um passo rumo ao sucesso! 🌟",
+    "Vocês são incríveis! O desempenho alcançado reflete o compromisso com a aprendizagem. Continuem assim, nas aulas de orientação de estudos será apenas mais uma conquista! 🚀",
+    "A educação transforma vidas. Esta turma mostrou que está no caminho certo. Com foco e determinação, nas aulas de orientação de estudos será um grande momento de celebração! 📚",
+    "Grandes resultados nascem de pequenos esforços diários. Parabéns pelo empenho! nas aulas de orientação de estudos aguarda por vocês com confiança e esperança. 💪",
+    "Saber é poder, e vocês estão cada vez mais poderosos! O desempenho nas aulas de orientação de estudos é prova de que a aprovação é questão de tempo. ✨",
+    "Turma nota 10! Esse engajamento mostra que o futuro da educação está em boas mãos. Continuem praticando, nas aulas de orientação de estudos será o palco do seu brilho! 🎓"
   ];
   const mensagem = mensagens[Math.floor(Math.random() * mensagens.length)];
   const estrelas = () => {
@@ -529,13 +1138,13 @@ function gerarCertificadoComDados(turmaData, acertos, total, percentual) {
       <div style="border-bottom: 2px solid #d32f2f; display: inline-block; padding-bottom: 10px; margin-bottom: 20px;">
         <h1 style="color: #0a2f6c; font-size: 34px; margin: 0; letter-spacing: 2px;">CERTIFICADO DE PARTICIPAÇÃO</h1>
       </div>
-      <h3 style="color: #d32f2f; font-size: 20px; margin-top: -5px; font-weight: normal;">SARESP 2026 ★ Preparatório</h3>
+      <h3 style="color: #d32f2f; font-size: 20px; margin-top: -5px; font-weight: normal;">Recomposição OE ★ Avaliações 1° Bimestre </h3>
       <p style="font-size: 18px; margin-top: 25px;">Certificamos que a turma</p>
       <h2 style="font-size: 28px; margin: 10px 0 5px; color: #0a2f6c;">${escapeHtml(turmaData.escola)}</h2>
       <p style="font-size: 20px; font-weight: bold;">${escapeHtml(turmaData.anoSerie)} – Turma ${escapeHtml(turmaData.turma)}</p>
       <p style="font-size: 16px;">Período: ${escapeHtml(turmaData.periodo)}<br>Professor(a): ${escapeHtml(turmaData.professor)}</p>
       <div style="background: linear-gradient(145deg, #f0f4fc, #e6edf9); border-radius: 28px; padding: 20px; margin: 25px 0; border: 1px solid #cbd5e1;">
-        <p style="font-size: 20px; font-weight: bold; color: #0a2f6c;">🎯 Desempenho no Paulistão SARESP</p>
+        <p style="font-size: 20px; font-weight: bold; color: #0a2f6c;">🎯 Desempenho no Recomposição OE</p>
         <div style="display: flex; justify-content: center; align-items: baseline; gap: 15px; flex-wrap: wrap; margin: 15px 0;">
           <span style="font-size: 52px; font-weight: 800; color: #d32f2f;">${acertos}/${total}</span>
           <span style="font-size: 24px; color: #0a2f6c;">acertos</span>
@@ -560,7 +1169,7 @@ function gerarCertificadoComDados(turmaData, acertos, total, percentual) {
           <p style="font-size: 14px;">Diretor(a) da ${escapeHtml(turmaData.escola)}</p>
         </div>
       </div>
-      <p style="font-size: 12px; margin-top: 25px; color: #6c757d;">Este certificado é uma homenagem ao esforço da turma na preparação para o SARESP 2026. Continue praticando e acreditando no seu potencial!</p>
+      <p style="font-size: 12px; margin-top: 25px; color: #6c757d;">Este certificado é uma homenagem ao esforço da turma na preparação para o Recomposição OE - 1° bimestre 2026. Continue praticando e acreditando no seu potencial!</p>
     </div>
   `;
   const element = document.createElement('div');
@@ -588,7 +1197,7 @@ window.gerarCertificadoFromDashboard = async (turmaId) => {
     if (!turmaDoc.exists) { showToast('Turma não encontrada.', true); return; }
     const turmaData = turmaDoc.data();
     const resSnap = await db.collection('quiz_resultados').where('turmaId', '==', turmaId).get();
-    if (resSnap.empty) { showToast(`A turma ${turmaData.turma} ainda não realizou o quiz.`, true); return; }
+    if (resSnap.empty) { showToast(`A turma ${turmaData.turma} ainda não realizou o Recomposição OE.`, true); return; }
     const resultados = resSnap.docs.map(d => ({ ...d.data() }));
     resultados.sort((a, b) => (b.timestamp?.toDate() || 0) - (a.timestamp?.toDate() || 0));
     const ultimo = resultados[0];
@@ -633,7 +1242,7 @@ window.gerarCertificadoFromDashboard = async (turmaId) => {
     } catch (err) { showToast('Erro no dashboard', true); }
   };
   window.gerarPDFDashboard = () => {
-    html2pdf().set({margin:10, filename:'Dashboard_Quiz.pdf', orientation:'landscape'}).from(document.querySelector('.main-container')).save();
+    html2pdf().set({margin:10, filename:'Dashboard_Recomposição.pdf', orientation:'portrait'}).from(document.querySelector('.main-container')).save();
   };
 
   // ==================== INICIALIZAÇÃO E ABAS ====================
