@@ -52,7 +52,7 @@
     .question-text { font-size: 1.05rem; font-weight: 600; color: #1e293b; margin: 0.8rem 0; }
     .question-descriptor { background: white; border-left: 4px solid #3b82f6; padding: 0.8rem; border-radius: 8px; font-size: 0.85rem; color: #475569; margin-bottom: 1rem; }
     .question-image { max-width: 100%; max-height: 250px; border-radius: 16px; margin: 0.5rem 0; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-    .legenda-imagem { font-size: 0.8rem; color: #475569; text-align: center; margin-top: 0.3rem; font-style: italic; }
+    .legenda-imagem { font-size: 1.8rem; color: #1e293b; text-align: center; margin-top: 0.3rem; font-style: italic; }
 	.1legenda-imagem { font-size: 0.8rem; color: #475569; text-align: center; margin-top: 0.3rem; font-style: italic; }
     .imagem-container { margin: 1rem 0; text-align: center; }
     .option-group { display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 1rem; }
@@ -92,7 +92,7 @@
       <h3><i class="fas fa-pencil-alt"></i> Registro de Turma</h3>
       <form id="registroTurmaForm" class="form-grid">
         <div class="form-group"><label>Escola *</label><select id="rEscola" required></select></div>
-        <div class="form-group"><label>Ano/Série *</label><select id="rAnoSerie" required><option value="">Selecione</option><option>LP_6° ano</option><option>MT_6° ano</option><option>LP_9° ano</option><option>MT_9° ano</option><option>LP_3ª série</option><option>MT_3ª série</option></select></div>
+        <div class="form-group"><label>Ano/Série *</label><select id="rAnoSerie" required><option value="">Selecione</option><option>LP_6° ano</option><option>MT_6° ano</option><option>LP_7° ano</option><option>MT_7° ano</option><option>LP_8° ano</option><option>MT_8° ano</option><option>LP_9° ano</option><option>MT_9° ano</option><option>LP_1ª série</option><option>MT_1ª série</option><option>LP_2ª série</option><option>MT_2ª série</option><option>LP_3ª série</option><option>MT_3ª série</option></select></div>
         <div class="form-group"><label>Turma *</label><select id="rTurma" required><option value="">Selecione</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option></select></div>
         <div class="form-group"><label>Período *</label><select id="rPeriodo" required><option value="">Selecione</option><option>Matutino</option><option>Vespertino</option><option>Noturno</option></select></div>
         <div class="form-group" style="grid-column:1/-1"><label>Professor(a) *</label><input type="text" id="rProfessor" required></div>
@@ -175,17 +175,17 @@ const questoesPorAno = {
     numero: 1,
     disciplina: "Língua Portuguesa",
     descriptor: "Localizar informações explícitas em textos narrativos curtos, informativos e anúncios.",
-    texto: "Leia o texto.\n\nDois ou um\nAssim que o grupo fala \"dois ou um\", todos mostram, ao mesmo tempo, um ou dois dedos. Todos os que colocam um número de dedos diferente da maioria são eliminados.\nDeve-se tirar \"dois ou um\" até sobrar apenas duas crianças. Elas decidem quem vence no par ou ímpar.De acordo com o texto, deve-se tirar “dois ou um” até sobrarem quantas crianças?",
+    texto: "Leia o texto.",
     opcoes: ["Uma.", "Duas.", "Três.", "Quatro."],
     resposta: 1,
-    imagem: "https://i.ibb.co/VWrKtqnC/6lp1.png",
-    legendaImagem: "DOIS ou um. Mapa do Brincar. Folha de S. Paulo. Disponível em: https://mapadobrincar.folha.com.br/. Acesso em: 27 out. 2025"
+    imagem: "https://i.ibb.co/hJkKR0kV/Captura-de-tela-2026-05-27-114225.png",
+    legendaImagem: "De acordo com o texto, deve-se tirar “dois ou um” até sobrarem quantas crianças?"
   },
   {
     numero: 2,
     disciplina: "Língua Portuguesa",
     descriptor: "Reconhecer a finalidade de receitas, manuais e regulamentos.",
-    texto: "Leia algumas regras de uma das variações da brincadeira “amarelinha”.\n\nSó pode pular com o mesmo pé com que começou o jogo (não vale trocar de pé).\nNão pode apoiar a mano ou o outro pé no chão para pegar a pedrinha.\nNão pode pisar na linha ou fora do quadrado.\nNão pode pisar no quadrado em que estiver a pedrinha.\nNão pode jogar a pedrinha no quadrado errado.\n\nAMARELINHA 10. Mapa do Brincar. Folha de S. Paulo. Disponível em: https://mapadobrincar.folha.com.br. Acesso em: 27 out. 2025.\n\nEssas regras da “amarelinha” têm a finalidade de",
+    texto: "Leia algumas regras de uma das variações da brincadeira “amarelinha”.",
     opcoes: [
       "explicar a importância da brincadeira.",
       "informar quantas variações a brincadeira tem.",
@@ -193,14 +193,14 @@ const questoesPorAno = {
       "orientar sobre o que pode ou não fazer na brincadeira."
     ],
     resposta: 3,
-    imagem: "",
-    legendaImagem: ""
+    imagem: "https://i.ibb.co/0yScLpj7/LP026a.png",
+    legendaImagem: "Essas regras da “amarelinha” têm a finalidade de"
   },
   {
     numero: 3,
     disciplina: "Língua Portuguesa",
     descriptor: "Estabelecer relação entre partes do texto: personagem e ação; ação e tempo; ação e lugar.",
-    texto: "Leia a história em quadrinhos.\n\nBOHLEN, Tabata. Cientirinhas #170. Disponível em: https://dragoesdegaragem.com. Acesso em: 28 out. 2025.\n\nA ação da personagem no último quadrinho demonstra que ela",
+    texto: "Leia a história em quadrinhos.",
     opcoes: [
       "tem uma boa comunicação com o pai sobre seus gostos.",
       "gostaria de um livro sobre os animais “minhocas”.",
@@ -208,14 +208,14 @@ const questoesPorAno = {
       "aprendeu tudo que precisava com a leitura."
     ],
     resposta: 1,
-    imagem: "",
-    legendaImagem: "Cientirinhas #170: Personagem ganha um livro de física do pai, mas no último quadrinho aparece no quintal brincando com minhocas."
+    imagem: "https://i.ibb.co/Y4cDnMvj/LP036a.png",
+    legendaImagem: "A ação da personagem no último quadrinho demonstra que ela"
   },
   {
     numero: 4,
     disciplina: "Língua Portuguesa",
     descriptor: "Inferir o sentido de palavra, o sentido de expressão ou o assunto em cartas, contos, tirinhas e histórias em quadrinhos com o apoio de linguagem verbal e não verbal.",
-    texto: "Leia a história em quadrinhos.\n\nHUMOR COM CIÊNCIA. Experimento? Disponível em: www.humorcomciencia.com. Acesso em: 28 out. 2025.\n\nNo contexto da história em quadrinhos, “supor” significa",
+    texto: "Leia a história em quadrinhos.",
     opcoes: [
       "ter certeza de que algo é verdadeiro.",
       "imaginar que algo possa ser verdadeiro.",
@@ -223,14 +223,14 @@ const questoesPorAno = {
       "provar que algo é verdadeiro por meio de testes."
     ],
     resposta: 1,
-    imagem: "",
-    legendaImagem: "Tirinha intitulada Experimento? onde uma personagem levanta a hipótese sobre o sabor de um bolo."
+    imagem: "https://i.ibb.co/S7Zg6Vrv/Captura-de-tela-2026-05-27-120112.png",
+    legendaImagem: "No contexto da história em quadrinhos, “supor” significa"
   },
   {
     numero: 5,
     disciplina: "Língua Portuguesa",
     descriptor: "Identificar o tema de um texto.",
-    texto: "Considere a charge.\n\nARIONAURO. Disponível em: www.arionaurocartuns.com.br. Acesso em: 28 out. 2025.\n\nO tema da charge é o",
+    texto: "Considere a charge.",
     opcoes: [
       "combate à dengue.",
       "desperdício de água.",
@@ -238,14 +238,14 @@ const questoesPorAno = {
       "uso exagerado de redes sociais."
     ],
     resposta: 1,
-    imagem: "",
-    legendaImagem: "Charge de Arionauro mostrando um homem usando o celular enquanto lava a calçada com mangueira, deixando a água escorrer pelo ralo."
+    imagem: "https://i.ibb.co/9K9mVnH/Captura-de-tela-2026-05-27-120331.png",
+    legendaImagem: "O tema da charge é o"
   },
   {
     numero: 6,
     disciplina: "Língua Portuguesa",
     descriptor: "Estabelecer relação entre partes do texto: personagem e ação; ação e tempo; ação e lugar.",
-    texto: "Leia a charge.\n\nDisponível em: https://beta.portalodia.com/. Acesso em: 22 ago. 2025.\n\nA ação do personagem, unindo expressão facial e o demonstrar dos bolsos da calça, indica",
+    texto: "Leia a charge.",
     opcoes: [
       "irritação pelo preço gasto com a conta mensal.",
       "desespero em relação ao aumento da conta de luz.",
@@ -253,14 +253,14 @@ const questoesPorAno = {
       "demonstração de descuido em relação ao seu dinheiro."
     ],
     resposta: 1,
-    imagem: "",
-    legendaImagem: "Charge com teor crítico sobre o aumento da conta de luz, unindo elementos verbais e não verbais com o personagem puxando os bolsos para fora."
+    imagem: "https://i.ibb.co/DgrVdBMT/Captura-de-tela-2026-05-27-120717.png",
+    legendaImagem: "A ação do personagem, unindo expressão fácil e o demonstrar dos bolsos da calça, indica"
   },
   {
     numero: 7,
     disciplina: "Língua Portuguesa",
     descriptor: "Reconhecer relação de causa e consequência em poemas, contos e tirinhas.",
-    texto: "Leia a tirinha.\n\nDisponível em: www.willtirando.com.br. Acesso em: 18 dez. 2025.\n\nNa tirinha, a causa de Alberto não gostar mais de refletir no penhasco é o(a)",
+    texto: "Leia a tirinha.",
     opcoes: [
       "paisagem do local.",
       "altura do penhasco.",
@@ -268,14 +268,14 @@ const questoesPorAno = {
       "momento do anoitecer."
     ],
     resposta: 2,
-    imagem: "",
-    legendaImagem: "Tirinha do Will Tirando mostrando o personagem Alberto em um penhasco sendo atacado por pássaros."
+    imagem: "https://i.ibb.co/wFSpHBrz/Captura-de-tela-2026-05-27-120957.png",
+    legendaImagem: "Na tirinha, a causa de Alberto não gostar mais de refletir no penhasco é o(a)"
   },
   {
     numero: 8,
     disciplina: "Língua Portuguesa",
     descriptor: "Inferir efeito de humor em tirinhas e histórias em quadrinhos.",
-    texto: "Leia a tirinha.\n\nDisponível em: https://buzga.wordpress.com/. Acesso em: 18 dez. 2025.\n\nO efeito de humor da tirinha é construído porque Buzga",
+    texto: "Leia a tirinha.",
     opcoes: [
       "surpreende o amigo ao preparar um lanche.",
       "compreende o sentido equivocado de “partir”.",
@@ -283,8 +283,8 @@ const questoesPorAno = {
       "pede que o amigo tenha calma, enquanto ele tem pressa."
     ],
     resposta: 2,
-    imagem: "",
-    legendaImagem: "Tirinha do Buzga brincando com a polissemia da expressão 'partiu?' usada pelo amigo."
+    imagem: "https://i.ibb.co/R4gPqSYn/Captura-de-tela-2026-05-27-121133.png",
+    legendaImagem: "O efeito de humor da tirinha é construído porque Buzga"
   }
   
   ],
@@ -293,81 +293,81 @@ const questoesPorAno = {
     numero: 1,
     disciplina: "Matemática",
     descriptor: "Localizar um ponto ou objeto em uma malha quadriculada ou croqui, a partir de duas coordenadas ou duas ou mais referências.",
-    texto: "Na malha quadriculada a seguir, estão posicionados diferentes vasos de plantas da família dos cactos. Qual o vaso que está na posição A2?",
-    opcoes: ["Vaso na posição A5", "Vaso na posição D2", "Vaso na posição A2", "Vaso na posição E4"],
+    texto: "Na malha quadriculada a seguir, estão posicionados diferentes vasos de plantas da família dos cactos. Considere o quadro abaixo:",
+    opcoes: ["Vaso azul", "Vaso com 3 galhos", "Vaso com estrela", "Vaso rosa"],
     resposta: 2,
-    imagem: "",
-    legendaImagem: "Vasos de cactos na malha quadriculada de A a E e 1 a 5"
+    imagem: "https://i.ibb.co/gLjGDp4k/Captura-de-tela-2026-05-27-121355.png",
+    legendaImagem: "Qual o vaso que está na posição A2?"
   },
   {
     numero: 2,
     disciplina: "Matemática",
     descriptor: "Localizar um ponto ou objeto em uma malha quadriculada ou croqui, a partir de duas coordenadas ou duas ou mais referências.",
-    texto: "O jogo Batalha Naval foi criado por soldados russos durante a Primeira Guerra Mundial. Nele, cada participante posiciona navios em uma malha quadriculada, e o oponente deve tentar descobrir a posição desses navios. Considere a malha a seguir: Qual é a posição do submarino nesta malha?",
+    texto: "O jogo Batalha Naval foi criado por soldados russos durante a Primeira Guerra Mundial. Nele, cada participante posiciona navios em uma malha quadriculada, e o oponente deve tentar descobrir a posição desses navios. Considere a malha a seguir:",
     opcoes: ["(3,4)", "(4,3)", "(4,5)", "(5,4)"],
     resposta: 1,
-    imagem: "",
-    legendaImagem: "Submarino posicionado no plano cartesiano / malha quadriculada"
+    imagem: "https://i.ibb.co/zWZdvc63/Captura-de-tela-2026-05-27-121818.png",
+    legendaImagem: "Qual é a posição do submarino nesta malha?"
   },
   {
     numero: 3,
     disciplina: "Matemática",
     descriptor: "Reconhecer, dentre um conjunto de polígonos, aquele que possui o maior número de ângulos.",
-    texto: "Yuri é skatista e gosta de fazer manobras radicais. Certo dia, ele ligou o GPS e, depois de andar de skate, observou na tela do aparelho que seus movimentos haviam formado alguns polígonos irregulares. Na primeira volta, ele 'desenhou' um polígono de 10 lados; na segunda, um polígono de 8 lados; na terceira, um polígono de 6 lados; e, na quarta, um polígono de 9 lados. Em qual volta Yuri formou o polígono com maior número de ângulos?",
+    texto: "Yuri é skatista e gosta de fazer manobras radicais. Certo dia, ele ligou o GPS e, depois de andar de skate, observou na tela do aparelho que seus movimentos haviam formado alguns polígonos irregulares. Na primeira volta, ele “desenhou” um polígono de 10 lados; na segunda, um polígono de 8 lados; na terceira, um polígono de 6 lados; e, na quarta, um polígono de 9 lados.",
     opcoes: ["1", "2", "3", "4"],
     resposta: 0,
-    imagem: "",
-    legendaImagem: ""
+    imagem: ".",
+    legendaImagem: "Em qual volta Yuri formou o polígono com maior número de ângulos?"
   },
   {
     numero: 4,
     disciplina: "Matemática",
     descriptor: "Reconhecer, dentre um conjunto de polígonos, aquele que possui o maior número de ângulos.",
-    texto: "Para fazer um cartão de aniversário, Tiago vai usar como base uma figura geométrica plana. Observe as opções que ele tem. Qual figura geométrica tem o maior número de ângulos?",
+    texto: "Para fazer um cartão de aniversário, Tiago vai usar como base uma figura geométrica plana. Observe as opções que ele tem.",
     opcoes: ["Triângulo", "Hexágono", "Quadrado", "Pentágono"],
     resposta: 1,
-    imagem: "",
-    legendaImagem: "Opções de polígonos: triângulo, hexágono, pentágono e quadrado"
+    imagem: "https://i.ibb.co/ds0286wr/Captura-de-tela-2026-05-27-122202.png",
+    legendaImagem: "Qual figura geométrica tem o maior número de ângulos?"
   },
   {
     numero: 5,
     disciplina: "Matemática",
     descriptor: "Reconhecer la planificação de uma pirâmide dentre um conjunto de planificações.",
-    texto: "Em uma confeitaria, os doces são vendidos em embalagens de diferentes formatos. Elas ficam abertas e empilhadas; por isso, antes de serem preenchidas, é necessário montá-las. Considere algumas dessas embalagens desmontadas. Qual das caixas, ao ser montada, formará uma embalagem em formato de pirâmide?",
+    texto: "Em uma confeitaria, os doces são vendidos em embalagens de diferentes formatos. Elas ficam abertas e empilhadas; por isso, antes de serem preenchidas, é necessário montá-las. Considere algumas dessas embalagens desmontadas.",
     opcoes: ["I", "II", "III", "IV"],
     resposta: 1,
-    imagem: "",
-    legendaImagem: "Planificações numeradas de I a IV"
+    imagem: "https://i.ibb.co/rffn5pfc/Captura-de-tela-2026-05-27-122444.png",
+    legendaImagem: "Qual das caixas, ao ser montada, formará uma embalagem em formato de pirâmide?"
   },
   {
     numero: 6,
     disciplina: "Matemática",
     descriptor: "Reconhecer a planificação de um cubo dentre um conjunto de planificações apresentadas.",
-    texto: "Um arquiteto está projetando uma escultura com 6 faces para uma praça pública. Para facilitar a construção, ele precisa desenhar a planificação dela, mostrando todas as faces em um único plano. A planificação do sólido escolhido pelo arquiteto é representada por:",
+    texto: "Um arquiteto está projetando uma escultura com 6 faces para uma praça pública. Para facilitar a construção, ele precisa desenhar a planificação dela, mostrando todas as faces em um único plano.",
     opcoes: ["A", "B", "C", "D"],
     resposta: 1,
-    imagem: "",
-    legendaImagem: "Opções de planificações geométricas planares"
+    imagem: "https://i.ibb.co/YBCP92RG/Captura-de-tela-2026-05-27-122820.png",
+    legendaImagem: "A planificação do sólido escolhido pelo arquiteto é representada por:"
   },
   {
     numero: 7,
     disciplina: "Matemática",
     descriptor: "Determinar a área de figuras desenhadas em malhas quadriculadas por meio de contagem.",
-    texto: "Um profissional de marketing está criando um desenho ampliado para um cartaz. Primeiro, ele desenhou uma figura em uma malha quadriculada, em que cada quadradinho corresponde a 1 unidade de área (u.a.). Em seguida, ampliou o desenho, dobrando todas as medidas da figura original. A figura a seguir mostra a imagem original e sua ampliação. A área da figura ampliada é, em unidade de área (u.a.), equivalente a:",
+    texto: "Um profissional de marketing está criando um desenho ampliado para um cartaz. Primeiro, ele desenhou uma figura em uma malha quadriculada, em que cada quadradinho corresponde a 1 unidade de área (u.a.). Em seguida, ampliou o desenho, dobrando todas as medidas da figura original. A figura a seguir mostra a imagem original e sua ampliação",
     opcoes: ["4", "8", "12", "16"],
     resposta: 3,
-    imagem: "",
-    legendaImagem: "Quadrado original de lado 2 e sua ampliação de lado 4 na malha"
+    imagem: "https://i.ibb.co/1Yy6C7Fb/Captura-de-tela-2026-05-27-123010.png",
+    legendaImagem: "A área da figura ampliada é, em unidade de área (u.a.), equivalente a:"
   },
   {
     numero: 8,
     disciplina: "Matemática",
     descriptor: "Determinar a área de um terreno retangular representado em uma malha quadriculada.",
-    texto: "Enquanto Gabriela analisava a planta de um espaço em seu sítio para realizar uma obra, percebeu que ele tinha 4 m de largura e 6 m de comprimento. No entanto, precisava do dobro da largura; por isso, redesenhou a planta proporcionalmente, de modo que a largura passasse a medir 8 m. Mantendo a forma do retângulo original, o espaço passou a ter:",
+    texto: "Enquanto Gabriela analisava a planta de um espaço em seu sítio para realizar uma obra, percebeu que ele tinha 4 m de largura e 6 m de comprimento. No entanto, precisava do dobro da largura; por isso, redesenhou a planta proporcionalmente, de modo que a largura passasse a medir 8 m.",
     opcoes: ["24 m²", "48 m²", "72 m²", "96 m²"],
     resposta: 3,
-    imagem: "",
-    legendaImagem: "Retângulo original (4x6) e sua ampliação proporcional (8x12) na malha"
+    imagem: "https://i.ibb.co/Z6n3DvXn/Captura-de-tela-2026-05-27-123140.png",
+    legendaImagem: "Mantendo a forma do retângulo original, o espaço passou a ter"
   }
  
    ],
