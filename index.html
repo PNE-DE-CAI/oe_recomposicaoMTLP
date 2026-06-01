@@ -133,7 +133,7 @@
           <h3 id="quizTitulo" style="margin:0;">Recomposição OE - Carregando...</h3>
         </div>
         <div style="display:flex;justify-content:space-between; margin-top:-5px; margin-bottom:15px;"><span id="progresso"></span></div>
-        <div class="timer" id="timer">2:00</div>
+        <div class="timer" id="timer">20:00</div>
         <div id="questaoContainer"></div>
         <div style="display:flex;gap:12px;margin-top:2rem">
           <button class="btn" id="btnAnterior" onclick="questaoAnterior()" style="display:none"><i class="fas fa-arrow-left"></i> Anterior</button>
@@ -844,7 +844,7 @@ const questoesPorAno = {
   const escolasOficiais = ["ADAIL JARBAS DUCLOS", "AFONSO MORENO", "ALADINO POLON", "ALBERTO GRAF CAPITAO","ALBINO FIORE","ALFRIED THEODOR WEISZFLOG","ANA MARIA GARRIDO ORLANDIN PROFA","APARECIDO ROBERTO TONELLOTTI PROFESSOR","ARMANDO SESTINI","ARTHUR WEINGRILL","AZEVEDO SOARES","BAIRRO DO ITAIM","BAIRRO JUNDIAIZINHO","BELEM DA SERRA","BENEDITO APARECIDO TAVARES PROF","BENEDITO FAGUNDES MARQUES","BUENO DE AZEVEDO FILHO PROF","CARLOS AUGUSTO DE PADUA FLEURY PROF","CELESTINA VALENTE LENGENFELDER PROFA","CHACARA CAMPONESA JARDIM VASSOURAS","DOMINGOS CAMBIAGHI PROF","DR. MARIO TOLEDO DE MORAES","DR. NELSON MANZANARES","ELCIO JOSE PEREIRA COTRIM PROF","ELVIRA PARADA MANGA PROFA","FRANCISCO GONCALVES VIEIRA PROF","HERMELINA DE ALBUQUERQUE PASSARELLA PROFA","IRACI SARTORI VIEIRA DA SILVA PROFA","ISAIAS LUIZ MATIAZZO","ISAURA DE MIRANDA BOTTO PROFA","ISAURA VALENTINI HANSER PROFA","IVONE DOS ANJOS DA SILVA CAMPOS PROFA","JARDIM ALEGRIA II","JARDIM DAS ROSAS","JARDIM SAO FRANCISCO","JARDIM SILVIA II","JOAQUIM MARQUES DA SILVA SOBRINHO TTE","JOCIMARA VIEIRA DA SILVA PROFA","JOSE CARLOS DA SILVA JUNIOR","JOSE DE BARROS MARTINS EDITOR","JOSE PARADA PROFESSOR","JOSE ROBERTO MELCHIOR DR","KATIA MARIA TARIFA LEME TONELLI PROFA","LENITA CORREA CAMARGO PROFA","LUIZ ALEXANDRE DOS SANTOS VEREADOR","LYDIA SCALET WALKER PROFA","MARIA ZEZA GOMES DE OLIVEIRA","NAIR HANNICKEL ROMARO","NIDE ZAIM CARDOSO PROFA","ODARICO OLIVEIRA NASCIMENTO PROF","OLINDO DARTORA DR","OTTO WEISZFLOG","OZILDE ALBUQUERQUE PASSARELLA DR","PARQUE CENTO E VINTE II","PAULO DUARTE","PEDRO GALRAO DO NASCIMENTO","PEDRO LELIS DE SOUZA PREFEITO","PEDRO PAULO DE AGUIAR","PIETRO PETRI","RITUCO MITANI PROFA","ROGERIO LEVORIN PROF","SUZANA DIAS","ULYSSES SANCHES RAMIRES PROF","VINCENZO LOBASSI","WALTER RIBAS DE ANDRADE PROF EE","WALTHER WEISZFLOG","ZILTON BICUDO PROF"];
 
   // ==================== VARIÁVEIS GLOBAIS ====================
-  let questoesAtuais = [], respostas = [], questaoAtual = 0, timerInterval, tempoRestante = 120;
+  let questoesAtuais = [], respostas = [], questaoAtual = 0, timerInterval, tempoRestante = 1200;
   let turmaSelecionada = null;
   let todasTurmas = [];           // armazena todas as turmas para busca
   let registrosAtuais = [];       // armazena todos os registros para filtro
@@ -902,7 +902,7 @@ const questoesPorAno = {
         <td data-label="Período">${escapeHtml(d.periodo)}</td>
         <td data-label="Professor">${escapeHtml(d.professor)}</td>
         <td data-label="Obs">${escapeHtml(d.observacoes || '-')}</td>
-        <td data-label="Ações"><button class="btn" onclick="editarRegistro('${d.id}')" style="padding:4px 8px"><i class="fas fa-edit"></i></button> <button class="btn btn-danger" onclick="excluirRegistro('${d.id}')" style="padding:4px 8px"><i class="fas fa-trash"></i></button></td>
+        <td data-label="Ações"><button class="btn" onclick="editarRegistro('${d.id}')" style="padding:4px 8px"><i class="fas fa-edit"></i></button></td>
       </tr>`;
     });
     tbody.innerHTML = html;
@@ -1020,7 +1020,7 @@ const questoesPorAno = {
     questoesAtuais = [...questoes];
     respostas = new Array(questoesAtuais.length).fill(null);
     questaoAtual = 0;
-    tempoRestante = 120;
+    tempoRestante = 1200;
     document.getElementById('quizArea').style.display = 'block';
     document.getElementById('resultadoFinal').style.display = 'none';
     document.getElementById('quizTitulo').innerHTML = `${escapeHtml(turmaSelecionada.escola)} - ${escapeHtml(turmaSelecionada.anoSerie)} ${escapeHtml(turmaSelecionada.turma)}`;
